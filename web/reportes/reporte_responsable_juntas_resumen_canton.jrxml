@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporte_responsable_juntas_detalle" language="groovy" pageWidth="595" pageHeight="842" columnWidth="585" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select *, COALESCE((
+                     SELECT count(j.idjunta)
+                     FROM junta as j
+                     inner join zonas as z on j.fr_id_zona=z.idzonas
+                     inner join parroquias as p on p.cod_parroquia=z.cod_parroquia
+                     inner join cantones as ca on ca.cod_canton=p.cod_canton
+                     where ca.cod_canton=c.cod_canton and j.responsable is not null
+                     group by ca.cod_canton
+                     ),0) as con_responsable,
+                     (select count(*) from junta as j
+                     inner join zonas as z on j.fr_id_zona=z.idzonas
+                     inner join parroquias as p on p.cod_parroquia=z.cod_parroquia
+                     inner join cantones as ca on ca.cod_canton=p.cod_canton
+                     where ca.cod_canton=c.cod_canton) as total
+                     from cantones as c
+                     where c.cod_canton<>3
+                     order by cod_canton;]]>
+	</queryString>
+	<field name="cod_canton" class="java.lang.Integer"/>
+	<field name="cod_provincia" class="java.lang.Integer"/>
+	<field name="nombre_canton" class="java.lang.String"/>
+	<field name="tiene_circunscipciones" class="java.lang.Boolean"/>
+	<field name="fr_id_canton_pertenece" class="java.lang.Integer"/>
+	<field name="con_responsable" class="java.lang.Long"/>
+	<field name="total" class="java.lang.Long"/>
+	<variable name="con_responsable_1" class="java.lang.Long" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{con_responsable}]]></variableExpression>
+	</variable>
+	<variable name="total_1" class="java.lang.Long" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="2" width="166" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANTÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="2" width="156" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÚMERO DE DELEGADOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="2" width="68" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="341" y="2" width="68" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="19" y="0" width="166" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombre_canton}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="142" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{con_responsable}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="420" y="0" width="68" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[($F{con_responsable} / $F{total})  * 100.00]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="341" y="0" width="68" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="23">
+			<textField>
+				<reportElement x="185" y="0" width="142" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{con_responsable_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="0" width="68" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{total_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="420" y="0" width="68" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[($V{con_responsable_1} / $V{total_1})  * 100.00]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="488" y="0" width="42" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="0" width="166" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL:]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

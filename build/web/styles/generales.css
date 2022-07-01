@@ -1,0 +1,175 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 16, 2017, 2:57:13 PM
+    Author     : Dubal
+*/
+
+.menu{
+    position:absolute;
+    left: 637px;
+    top: 167px;
+    width:342px;
+    height:15px;
+    font-weight:bold
+}
+
+body{
+    
+}
+
+#wrap {
+    width:390px;
+    margin:0 auto;
+    padding:5px;
+    text-align:center;
+    border: 0
+}
+
+#cuerpo {
+    margin: 0 auto;
+    padding:5px;
+    vertical-align: central;
+    border: 0
+}
+
+#navegacion {
+    width:60%;
+    margin: 0 auto;
+    padding:5px;
+    vertical-align: central;
+    border: 0
+}
+
+#navegacion2 {
+    width:80%;
+    margin: 0 auto;
+    padding:5px;
+    vertical-align: central;
+    border: 0
+}
+
+
+table, table td, table tr {
+    padding:0px;
+    border-spacing: 0px;
+}
+
+table {
+    border:1px black solid;
+    border-radius:5px;
+}
+
+table td {
+    padding:6px;
+}
+
+table tr:first-child td:first-child {
+    border-radius:5px 0px 0px 0px;
+}
+
+table tr:first-child td:last-child {
+    border-radius:0px 5px 0px 0px;
+}
+
+table tr:last-child td:first-child {
+    border-radius:0px 0px 0px 5px;
+}
+
+table tr:last-child td:last-child {
+    border-radius:0px 0px 5px 0px;
+}
+
+table td:not(:last-child) {
+    border-right:1px #666 solid;
+}
+
+
+table tr:nth-child(2n) {
+    background: #FAFAFA;
+}
+
+table tr:nth-child(2n+1){
+    background: #D8D8D8;
+}
+
+table.header tr:not(:first-child):hover, table:not(.header) tr:hover {
+    background:#2980B9;
+}
+
+table:not(.header) tr {
+    text-align: left;
+}
+
+table.header tr:first-child {
+    font-weight: bold;
+    color:#fff;
+    background-color: #444;
+    border-bottom:1px #000 solid;
+}
+
+table.header tr:nth-child(n+2) {
+    text-align: right;
+}
+
+.foto {
+    border-radius: 2px;
+}
+
+input[type="submit"]{
+    margin: 0px;
+    padding: 10px;
+    color: #000000;
+    background-color: #330099;
+    font-weight: bold;
+    border-color: #330099;
+    border-radius: 4px;
+}
+
+input[type="button"]{
+    margin: 0px;
+    padding: 10px;
+    color: #000000;
+    background-color: #330099;
+    font-weight: bold;
+    border-color: #330099;
+    border-radius: 4px;
+}
+
+select{
+    margin: 2px;
+    padding: 2px;
+    border-radius: 4px;
+    /*color: #2b8acc;*/
+    color: #08298A;
+    border-color: #336
+}
+
+.boton {
+    margin: 10px;
+    padding: 10px;
+    color: #666;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.img_boton_chart{
+    background-image: url('../images/grafico.png');
+    background-repeat: round;
+    margin: 0px;
+}
+
+.img_boton_excel{
+    background-image: url('../images/excel.png');
+    background-repeat: round;
+    margin: 0px;
+} 
+
+a.nounderline 
+{   
+ text-decoration:none;   
+ color:  #666;
+}

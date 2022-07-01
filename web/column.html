@@ -1,0 +1,186 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">
+    <script>
+        Highcharts.chart('container', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'RESULTADOS PREFECTO Y VICEPREFECTO A NIVEL PROVINCIAL'
+            },
+            subtitle: {
+                text: 'Total de votos unipersonales'
+            },
+            tooltip: {
+                pointFormat: '<span style="color:{point.color}">{series.name}</span>: <b>{point.y:.2f}% - {point.val}</b> votos<br/>'
+            },
+            xAxis: {
+                categories: [
+                    'Candidatos'
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Total de votos(%)'
+                }
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                },
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}%' + ' - ' + ' {point.val}'
+                    }
+                }
+            },
+            series: [
+
+                {
+                    name: 'LENIN ALEJANDRO CHICA ARTEAGA',
+                    color: '#cf0017',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'ROBERTA ZAMBRANO',
+                    color: '#e1dc05',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'DAVID QUIÑONEZ AYOVI',
+                    color: '#0079b0',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'ERNESTO SOSA',
+                    color: '#5b843c',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'DENNY CEVALLOS CAPURRO',
+                    color: '#ffe200',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'EVELIO ESTRADA MATA',
+                    color: '#da3536',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'VICKO VILLACIS',
+                    color: '#d4508e',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'CARLOS CELI',
+                    color: '#0e5093',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'CARLOS VICENTE TENORIO MEDINA',
+                    color: '#d7d620',
+                    data: [{y: 20, val: 20}]
+                },
+            ]
+        });
+    </script>
+</div>
+<div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto">
+    <script>
+        Highcharts.chart('container2', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'RESULTADOS PREFECTO Y VICEPREFECTO A NIVEL PROVINCIAL'
+            },
+            subtitle: {
+                text: 'Total de votos unipersonales'
+            },
+            tooltip: {
+                pointFormat: '<span style="color:{point.color}">{series.name}</span>: <b>{point.y:.2f}% - {point.val}</b> votos<br/>'
+            },
+            xAxis: {
+                categories: [
+                    'Candidatos'
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Total de votos(%)'
+                }
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                },
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}%' + ' - ' + ' {point.val}'
+                    }
+                }
+            },
+            series: [
+
+                {
+                    name: 'LENIN ALEJANDRO CHICA ARTEAGA',
+                    color: '#cf0017',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'ROBERTA ZAMBRANO',
+                    color: '#e1dc05',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'DAVID QUIÑONEZ AYOVI',
+                    color: '#0079b0',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'ERNESTO SOSA',
+                    color: '#5b843c',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'DENNY CEVALLOS CAPURRO',
+                    color: '#ffe200',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'EVELIO ESTRADA MATA',
+                    color: '#da3536',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'VICKO VILLACIS',
+                    color: '#d4508e',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'CARLOS CELI',
+                    color: '#0e5093',
+                    data: [{y: 20, val: 20}]
+                },
+                {
+                    name: 'CARLOS VICENTE TENORIO MEDINA',
+                    color: '#d7d620',
+                    data: [{y: 20, val: 20}]
+                },
+            ]
+        });
+    </script>
+</div>

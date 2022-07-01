@@ -1,0 +1,25 @@
+/* 
+    Document   : foot
+    Created on : 24/01/2013, 09:38:53 AM
+    Author     : userver1
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body  {
+	text-align:center;
+	font:10px Verdana, Arial, Helvetica, sans-serif;
+	}
+	
+#wrap {
+	width:390px;
+	margin:0 auto;
+	padding:5px;
+	text-align:center;
+	border: 0
+	}
+

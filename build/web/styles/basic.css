@@ -1,0 +1,71 @@
+/* 
+    Document   : basic
+    Created on : 07/02/2014, 10:54:37 AM
+    Author     : root
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body{
+    background-color: #e8e6dc
+}
+
+input[type="submit"]{
+    margin: 10px;
+    padding: 10px;
+    color: #fafafa;
+    background-color: #330099;
+    font-weight: bold;
+    border-color: #330099;
+    border-radius: 4px;
+}
+
+input[type="button"]{
+    margin: 10px;
+    padding: 10px;
+    color: #fafafa;
+    background-color: #330099;
+    font-weight: bold;
+    border-color: #330099;
+    border-radius: 4px;
+}
+
+input[type="text"]{
+    margin: 4px;
+    padding: 4px;
+    color: #000000;
+    background-color: #F2F5A9;
+    font-weight: bold;
+    border-color: #330099;
+    border-radius: 4px;
+}
+
+
+input[type="password"]{
+    margin: 4px;
+    padding: 4px;
+    color: #000000;
+    background-color: #F2F5A9;
+    font-weight: bold;
+    border-color: #330099;
+    border-radius: 4px;
+}
+
+select{
+    margin: 2px;
+    padding: 2px;
+    border-radius: 4px;
+    background-color: #F2F5A9;
+    color: #08298A;
+    border-color: #330099
+}
+
+.error{
+    text-align: center;
+    background-color: #e64f4f;
+    color: #fafafa;
+    border-color: #000000;
+    border-radius: 5px;
+    font-size: larger;
+    font-weight: 700
+}

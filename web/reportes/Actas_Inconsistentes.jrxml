@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Actas_Inconsistentes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="94"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\TIC-DQUEVEDO\\Documents\\NetBeansProjects\\elecciones\\web\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM acta as a
+inner join junta as j on j.idjunta=a.fr_id_junta
+inner join zonas as z on z.idzonas=a.cod_zona
+inner join parroquias as p on p.cod_parroquia=a.cod_parroquia
+inner join cantones as ca on ca.cod_canton=a.cod_canton
+inner join dignidad as d on d.iddignidad=a.fr_id_dignidad
+where cuadrada=false and d.iddignidad=2
+ORDER BY p.cod_parroquia, z.idzonas, j.idjunta;]]>
+	</queryString>
+	<field name="idacta" class="java.lang.Integer"/>
+	<field name="cod_provincia" class="java.lang.Integer"/>
+	<field name="cod_canton" class="java.lang.Integer"/>
+	<field name="cod_parroquia" class="java.lang.Integer"/>
+	<field name="cod_zona" class="java.lang.Integer"/>
+	<field name="fr_id_junta" class="java.lang.Integer"/>
+	<field name="fr_id_dignidad" class="java.lang.Integer"/>
+	<field name="cne_cod_acta" class="java.lang.Long"/>
+	<field name="num_validos" class="java.lang.Integer"/>
+	<field name="num_no_voto" class="java.lang.Integer"/>
+	<field name="num_blancos" class="java.lang.Integer"/>
+	<field name="num_nulos" class="java.lang.Integer"/>
+	<field name="acta_usu_ing" class="java.lang.Integer"/>
+	<field name="acta_usu_mod" class="java.lang.Integer"/>
+	<field name="acta_fi" class="java.sql.Timestamp"/>
+	<field name="acta_um" class="java.sql.Timestamp"/>
+	<field name="cuadrada" class="java.lang.Boolean"/>
+	<field name="legible" class="java.lang.Boolean"/>
+	<field name="fr_id_acta_estado" class="java.lang.Integer"/>
+	<field name="idjunta" class="java.lang.Integer"/>
+	<field name="fr_id_zona" class="java.lang.Integer"/>
+	<field name="cne_cod_junta" class="java.lang.Integer"/>
+	<field name="num_junta" class="java.lang.Integer"/>
+	<field name="genero" class="java.lang.String"/>
+	<field name="junta_nombre" class="java.lang.String"/>
+	<field name="num_electores_cne" class="java.lang.Integer"/>
+	<field name="num_votaron" class="java.lang.Integer"/>
+	<field name="num_no_votaron" class="java.lang.Integer"/>
+	<field name="num_total_votaron" class="java.lang.Integer"/>
+	<field name="receptada" class="java.lang.Boolean"/>
+	<field name="responsable_cedula" class="java.lang.String"/>
+	<field name="responsable" class="java.lang.String"/>
+	<field name="responsable_telefono" class="java.lang.String"/>
+	<field name="cod_recinto" class="java.lang.Integer"/>
+	<field name="idzonas" class="java.lang.Integer"/>
+	<field name="parroquia_nombre" class="java.lang.String"/>
+	<field name="nombre_zona" class="java.lang.String"/>
+	<field name="est_parroquia" class="java.lang.String"/>
+	<field name="num_elec_zona" class="java.lang.Integer"/>
+	<field name="num_elec_hombres_zona" class="java.lang.Integer"/>
+	<field name="num_elec_mujeres_zona" class="java.lang.Integer"/>
+	<field name="num_juntas" class="java.lang.Integer"/>
+	<field name="num_junta_hombre" class="java.lang.Integer"/>
+	<field name="num_junta_mujeres" class="java.lang.Integer"/>
+	<field name="num_elec_zona_max" class="java.lang.Integer"/>
+	<field name="num_junta_mujeres_ini" class="java.lang.String"/>
+	<field name="num_junta_mujeres_fin" class="java.lang.String"/>
+	<field name="num_junta_hombre_ini" class="java.lang.Integer"/>
+	<field name="num_junta_hombre_fin" class="java.lang.String"/>
+	<field name="nombre_parroquia" class="java.lang.String"/>
+	<field name="estado_parroquia" class="java.lang.String"/>
+	<field name="nombre_canton" class="java.lang.String"/>
+	<field name="tiene_circunscipciones" class="java.lang.Boolean"/>
+	<field name="fr_id_canton_pertenece" class="java.lang.Integer"/>
+	<field name="iddignidad" class="java.lang.Integer"/>
+	<field name="nombre_dignidad" class="java.lang.String"/>
+	<field name="activo" class="java.lang.Boolean"/>
+	<field name="es_provincial" class="java.lang.Boolean"/>
+	<field name="fr_id_id_provincia" class="java.lang.Integer"/>
+	<field name="provincia_nombre" class="java.lang.String"/>
+	<field name="fr_id_eleccion" class="java.lang.Integer"/>
+	<field name="eleccion_nombre" class="java.lang.String"/>
+	<field name="num_candidato_lista" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="239">
+			<textField>
+				<reportElement x="276" y="194" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{num_blancos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="219" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{num_nulos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="167" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{num_validos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="178" y="194" width="100" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Blancos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="167" width="100" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[T. Firmas y Huellas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="219" width="100" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nulos]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="67" y="102" width="211" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombre_canton}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="102" width="200" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombre_parroquia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="64" y="137" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombre_zona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="91" y="65" width="399" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre_dignidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="134" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{junta_nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="102" width="100" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Canton]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="136" width="100" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Zona]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="102" width="100" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Parroquia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="136" width="100" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Junta]]></text>
+			</staticText>
+			<image onErrorType="Blank">
+				<reportElement x="41" y="13" width="50" height="50"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR}+"/reportes/images/logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="139" y="27" width="341" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DELEGADOS DE JUNTAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="45" width="341" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="8" width="341" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SISTEMA DE CONTROL ELECTORAL 2019]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="119" splitType="Stretch">
+			<subreport>
+				<reportElement x="7" y="0" width="548" height="101"/>
+				<subreportParameter name="id">
+					<subreportParameterExpression><![CDATA[$F{idacta}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/reportes/Actas_Inc_Sub.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

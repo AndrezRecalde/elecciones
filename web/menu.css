@@ -1,0 +1,605 @@
+
+
+.inici {
+    position:absolute;
+    left: 11px;
+    top: 11px; /*262px;*/
+    color:#ffffff;
+    text-decoration:none;
+    font-size:12px;
+    height: 38px;
+    width:137px;
+    background-image:url(images/boto_tronja.jpg);
+    background-repeat:no-repeat;
+    text-align:center;
+    padding-top:11px;
+    bottom: -1px;
+    right: 1px;
+}
+
+a.inici {
+    background-image:url(images/boto_gris.jpg);
+    color:#000000;
+}
+
+a.inici:hover {
+    background-image:url(images/boto_gris_fosc.jpg);
+    color:#000000;
+}
+
+.salir {
+    position:absolute;
+    left: 11px;
+    top: 210px; /*262px;*/
+    color:#ffffff;
+    text-decoration:none;
+    font-size:12px;
+    height: 38px;
+    width:137px;
+    background-image:url(images/boto_tronja.jpg);
+    background-repeat:no-repeat;
+    text-align:center;
+    padding-top:11px;
+    bottom: -1px;
+    right: 1px;
+}
+
+a.salir {
+    background-image:url(images/boto_gris.jpg);
+    color:#000000;
+}
+
+a.salir:hover {
+    background-image:url(images/boto_gris_fosc.jpg);
+    color:#000000;
+}
+
+.provincia {
+    position:absolute;
+    left: 0px;
+    top: 0px; /*262px;*/
+    color:#ffffff;
+    text-decoration:none;
+    font-size:12px;
+    height: 38px;
+    width:137px;
+    background-image:url(images/boto_tronja.jpg);
+    background-repeat:no-repeat;
+    text-align:center;
+    padding-top:11px;
+    bottom: -1px;
+    right: 1px;
+}
+
+a.provincia {
+    background-image:url(images/boto_gris.jpg);
+    color:#000000;
+}
+
+a.provincia:hover {
+    background-image:url(images/boto_gris_fosc.jpg);
+    color:#000000;
+}
+
+.dignidad {
+    position:absolute;
+    left: 0px;
+    top: 0px; /*262px;*/
+    color:#ffffff;
+    text-decoration:none;
+    font-size:12px;
+    height: 38px;
+    width:137px;
+    background-image:url(images/boto_tronja.jpg);
+    background-repeat:no-repeat;
+    text-align:center;
+    padding-top:11px;
+    bottom: -1px;
+    right: 1px;
+}
+
+a.dignidad {
+    background-image:url(images/boto_gris.jpg);
+    color:#000000;
+}
+
+a.dignidad:hover {
+    background-image:url(images/boto_gris_fosc.jpg);
+    color:#000000;
+}
+
+.organizacion {
+    position:absolute;
+    left: 0px;
+    top: 0px; /*262px;*/
+    color:#ffffff;
+    text-decoration:none;
+    font-size:12px;
+    height: 38px;
+    width:137px;
+    background-image:url(images/boto_tronja.jpg);
+    background-repeat:no-repeat;
+    text-align:center;
+    padding-top:11px;
+    bottom: -1px;
+    right: 1px;
+}
+
+a.organizacion {
+    background-image:url(images/boto_gris.jpg);
+    color:#000000;
+}
+
+a.organizacion:hover {
+    background-image:url(images/boto_gris_fosc.jpg);
+    color:#000000;
+}
+
+
+.candidato {
+    position:absolute;
+    left: 0px;
+    top: 0px; /*262px;*/
+    color:#ffffff;
+    text-decoration:none;
+    font-size:12px;
+    height: 38px;
+    width:137px;
+    background-image:url(images/boto_tronja.jpg);
+    background-repeat:no-repeat;
+    text-align:center;
+    padding-top:11px;
+    bottom: -1px;
+    right: 1px;
+}
+
+a.candidato {
+    background-image:url(images/boto_gris.jpg);
+    color:#000000;
+}
+
+a.candidato:hover {
+    background-image:url(images/boto_gris_fosc.jpg);
+    color:#000000;
+}
+
+.acta {
+    position:absolute;
+    left: 0px;
+    top: 0px; /*262px;*/
+    color:#ffffff;
+    text-decoration:none;
+    font-size:12px;
+    height: 38px;
+    width:137px;
+    background-image:url(images/boto_tronja.jpg);
+    background-repeat:no-repeat;
+    text-align:center;
+    padding-top:11px;
+    bottom: -1px;
+    right: 1px;
+}
+
+a.acta {
+    background-image:url(images/boto_gris.jpg);
+    color:#000000;
+}
+
+a.acta:hover {
+    background-image:url(images/boto_gris_fosc.jpg);
+    color:#000000;
+}
+
+.reporte {
+    position:absolute;
+    left: 0px;
+    top: 0px; /*262px;*/
+    color:#ffffff;
+    text-decoration:none;
+    font-size:12px;
+    height: 38px;
+    width:137px;
+    background-image:url(images/boto_tronja.jpg);
+    background-repeat:no-repeat;
+    text-align:center;
+    padding-top:11px;
+    bottom: -1px;
+    right: 1px;
+}
+
+a.reporte {
+    background-image:url(images/boto_gris.jpg);
+    color:#000000;
+}
+
+a.reporte:hover {
+    background-image:url(images/boto_gris_fosc.jpg);
+    color:#000000;
+}
+
+/* Desplegable Provincias*/
+
+#provincias
+{
+    position:absolute; 
+    left: 11px; 
+    top: 61px; 
+    z-index:30
+}
+
+#provincias li
+{  
+    margin-top:0px;
+    padding-top:11px;
+    padding-bottom:11px;
+    background-image:url(images/boto_gris.jpg);
+    width:137px;
+    height:16px;
+    position:relative;
+    text-decoration:none;
+}
+
+#provincias li:hover
+{    background-image:url(images/boto_gris_fosc.jpg);
+     text-decoration:none;
+}
+
+#provincias li li
+{  margin-top:0px;
+   padding-top:11px;
+   padding-bottom:11px;
+   background-image:none;
+   background-color:#E0E0E0;
+   width:137px;
+   height:16px;
+   border-top:2px solid #F44336;
+   border-bottom:0px solid #F44336;
+   border-left:10px solid #F44336;
+   border-right:10px solid #F44336;
+   margin-left:-10px
+}
+
+/* Desplegable Dignidades*/
+
+#dignidades
+{
+    position:absolute; 
+    left: 11px; 
+    top: 111px; 
+    z-index:30
+}
+
+#dignidades li
+{  
+    margin-top:0px;
+    padding-top:11px;
+    padding-bottom:11px;
+    background-image:url(images/boto_gris.jpg);
+    width:137px;
+    height:16px;
+    position:relative;
+    text-decoration:none;
+}
+
+#pdignidades li:hover
+{    background-image:url(images/boto_gris_fosc.jpg);
+     text-decoration:none;
+}
+
+#dignidades li li
+{  margin-top:0px;
+   padding-top:11px;
+   padding-bottom:11px;
+   background-image:none;
+   background-color:#E0E0E0;
+   width:137px;
+   height:16px;
+   border-top:2px solid #F44336;
+   border-bottom:0px solid #F44336;
+   border-left:10px solid #F44336;
+   border-right:10px solid #F44336;
+   margin-left:-10px
+}
+
+
+/* Desplegable Reportes*/
+
+#reportes
+{
+    position:absolute; 
+    left: 11px; 
+    top: 163px; 
+    z-index:30
+}
+
+#reportes li
+{  
+    margin-top:0px;
+    padding-top:11px;
+    padding-bottom:11px;
+    background-image:url(images/boto_gris.jpg);
+    width:137px;
+    height:16px;
+    position:relative;
+    text-decoration:none;
+}
+
+#reportes li:hover
+{    background-image:url(images/boto_gris_fosc.jpg);
+     text-decoration:none;
+}
+
+#reportes li li
+{  margin-top:0px;
+   padding-top:11px;
+   padding-bottom:11px;
+   background-image:none;
+   background-color:#E0E0E0;
+   width:137px;
+   height:16px;
+   border-top:2px solid #F44336;
+   border-bottom:0px solid #F44336;
+   border-left:10px solid #F44336;
+   border-right:10px solid #F44336;
+   margin-left:-10px
+}
+
+#first
+{ 
+    margin-top: -1px
+}
+
+#first_vermell
+{  margin-top: -1px;
+   border-bottom:0px solid #FFFFFF;
+   border-left:10px solid #ffffff;
+   border-right:10px solid #FFFFFF;
+   width:137px;
+   margin-left:-10px;
+}
+
+#first_vermell .in_first_vermell,
+#first_vermell .in_first_vermell:hover
+{
+    background-image:url(images/boto_tronja.jpg);
+    color:#FFFFFF
+}
+
+
+#midle_vermell
+{  border-bottom:0px solid #FFFFFF;
+   border-left:10px solid #ffffff;
+   border-right:10px solid #FFFFFF;
+   width:137px;
+   margin-left:-10px;
+}
+
+#midle_vermell .in_midle_vermell,
+#midle_vermell .in_midle_vermell:hover
+{
+    background-image:url(images/boto_tronja.jpg);
+    color:#FFFFFF
+}
+
+
+#last
+{  
+    border-bottom:10px solid #F44336;
+    border-left:10px solid #F44336;
+    border-right:10px solid #F44336;
+    width:137px;
+    margin-left:-10px
+}
+#last4
+{  
+    border-bottom:10px solid #4e9dd5;
+    border-left:10px solid #4e9dd5;
+    border-right:10px solid #4e9dd5;
+    width:137px;
+    margin-left:-10px
+}
+
+
+#last_vermell
+{  border-bottom:10px solid #FFFFFF;
+   border-left:10px solid #ffffff;
+   border-right:10px solid #FFFFFF;
+   width:137px;
+   margin-left:-10px;
+}
+
+#last_vermell .in_last_vermell,
+#last_vermell .in_last_vermell:hover
+{
+    background-image:url(images/boto_tronja.jpg);
+    color:#FFFFFF
+}
+
+
+#provincias li a
+{
+    color:#000000;
+}
+
+#dignidades li a
+{
+    color:#000000;
+}
+
+#reportes li a
+{
+    color:#000000;
+}
+#organizaciones li a
+{
+    color:#000000;
+}
+
+
+/* amagar submenus*/
+ul.menu_color
+{
+    list-style:none;
+    text-align:center;
+    margin:0px;
+    padding:0px;
+}
+
+ul.menu_color ul /* Para todos los ul debajo del ul.menu */
+{
+    display:none;
+    list-style:none;
+    margin-left:-40px;
+    padding-top:10px
+
+
+} 
+
+/* mostrar submenus quan fas hover al li corresponent*/
+
+/* Esto afecta a todos los ul inmediatamente debajo (el > ) de un li que a su vez esté dentro de un ul.menu */
+ul.menu_color li:hover > ul
+{
+    display:block;
+}
+
+
+/* menu desplegable productes*/
+
+#organizaciones
+{
+    position:absolute;
+    left: 11px;
+    top: 70px; /*262px;*/
+    z-index:30;
+
+}
+
+
+#organizaciones li
+{  margin-top:0px;
+   padding-top:11px;
+   padding-bottom:11px;
+   background-image:url(images/boto_gris.jpg);
+   width:137px;
+   height:16px;
+   position:relative;}
+
+#organizaciones li a
+{	color:#000000;
+}
+
+#organizaciones li:hover
+{    background-image:url(images/boto_gris_fosc.jpg);
+
+}
+
+#organizaciones li li
+{  
+    margin-top:0px;
+    padding-top:11px;
+    padding-bottom:11px;
+    background-image:none;
+    background-color:#E0E0E0;
+    width:137px;
+    height:16px;
+    border-top:2px solid #F44336;
+    border-bottom:0px solid #F44336;
+    border-left:10px solid #F44336;
+    border-right:10px solid #F44336;
+    margin-left:-10px
+}
+
+
+
+/* menu desplegable Candidatos*/
+
+#candidatos
+{
+    position:absolute;
+    left: 11px;
+    top: 101px; /*262px;*/
+    z-index:30;
+
+}
+
+#candidatos li
+{  margin-top:0px;
+   padding-top:11px;
+   padding-bottom:11px;
+   background-image:url(images/boto_gris.jpg);
+   width:137px;
+   height:16px;
+   position:relative;}
+
+#candidatos li a
+{	color:#000000;
+}
+
+#candidatos li:hover
+{    background-image:url(images/boto_gris_fosc.jpg);
+
+}
+
+#candidatos li li
+{  margin-top:0px;
+   padding-top:11px;
+   padding-bottom:11px;
+   background-image:none;
+   background-color:#E0E0E0;
+   width:137px;
+   height:16px;
+   border-top:2px solid #F44336;
+   border-bottom:0px solid #F44336;
+   border-left:10px solid #F44336;
+   border-right:10px solid #F44336;
+   margin-left:-10px
+}
+
+
+
+/* menu desplegable actas*/
+
+#actas
+{
+    position:absolute;
+    left: 11px;
+    top: 116px; /*262px;*/
+    z-index:30;
+
+}
+
+
+#actas li
+{  margin-top:0px;
+   padding-top:11px;
+   padding-bottom:11px;
+   background-image:url(images/boto_gris.jpg);
+   width:137px;
+   height:16px;
+   position:relative;
+}
+
+#actas li a
+{	color:#000000;
+}
+
+#actas li:hover
+{    background-image:url(images/boto_gris_fosc.jpg);
+
+}
+
+#actas li li
+{  margin-top:0px;
+   padding-top:11px;
+   padding-bottom:11px;
+   background-image:none;
+   background-color:#E0E0E0;
+   width:137px;
+   height:16px;
+   border-top:2px solid #4e9dd5;
+   border-bottom:0px solid #4e9dd5;
+   border-left:10px solid #4e9dd5;
+   border-right:10px solid #4e9dd5;
+   margin-left:-10px
+}

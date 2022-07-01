@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Actas_Inc_Sub" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM elec2020.acta_detalle as ad
+INNER join acta as a on a.idacta=ad.fr_id_acta
+inner join junta as j on j.idjunta=a.fr_id_junta
+inner join candidato as c on c.idcandidato=ad.fr_id_candidato
+inner join zonas as z on z.idzonas=a.cod_zona
+inner join parroquias as p on p.cod_parroquia=a.cod_parroquia
+inner join cantones as ca on ca.cod_canton=a.cod_canton
+inner join dignidad as d on d.iddignidad=a.fr_id_dignidad
+where idacta=$P{id};]]>
+	</queryString>
+	<field name="idacta_detalle" class="java.lang.Integer"/>
+	<field name="fr_id_acta" class="java.lang.Integer"/>
+	<field name="fr_id_candidato" class="java.lang.Integer"/>
+	<field name="num_votos_letras" class="java.lang.String"/>
+	<field name="num_votos" class="java.lang.Integer"/>
+	<field name="act_det_fi" class="java.sql.Timestamp"/>
+	<field name="act_det_um" class="java.sql.Timestamp"/>
+	<field name="poco_legible" class="java.lang.Boolean"/>
+	<field name="idacta" class="java.lang.Integer"/>
+	<field name="cod_provincia" class="java.lang.Integer"/>
+	<field name="cod_canton" class="java.lang.Integer"/>
+	<field name="cod_parroquia" class="java.lang.Integer"/>
+	<field name="cod_zona" class="java.lang.Integer"/>
+	<field name="fr_id_junta" class="java.lang.Integer"/>
+	<field name="fr_id_dignidad" class="java.lang.Integer"/>
+	<field name="cne_cod_acta" class="java.lang.Long"/>
+	<field name="num_validos" class="java.lang.Integer"/>
+	<field name="num_no_voto" class="java.lang.Integer"/>
+	<field name="num_blancos" class="java.lang.Integer"/>
+	<field name="num_nulos" class="java.lang.Integer"/>
+	<field name="acta_usu_ing" class="java.lang.Integer"/>
+	<field name="acta_usu_mod" class="java.lang.Integer"/>
+	<field name="acta_fi" class="java.sql.Timestamp"/>
+	<field name="acta_um" class="java.sql.Timestamp"/>
+	<field name="cuadrada" class="java.lang.Boolean"/>
+	<field name="legible" class="java.lang.Boolean"/>
+	<field name="fr_id_acta_estado" class="java.lang.Integer"/>
+	<field name="idjunta" class="java.lang.Integer"/>
+	<field name="fr_id_zona" class="java.lang.Integer"/>
+	<field name="cne_cod_junta" class="java.lang.Integer"/>
+	<field name="num_junta" class="java.lang.Integer"/>
+	<field name="genero" class="java.lang.String"/>
+	<field name="junta_nombre" class="java.lang.String"/>
+	<field name="num_electores_cne" class="java.lang.Integer"/>
+	<field name="num_votaron" class="java.lang.Integer"/>
+	<field name="num_no_votaron" class="java.lang.Integer"/>
+	<field name="num_total_votaron" class="java.lang.Integer"/>
+	<field name="receptada" class="java.lang.Boolean"/>
+	<field name="responsable_cedula" class="java.lang.String"/>
+	<field name="responsable" class="java.lang.String"/>
+	<field name="responsable_telefono" class="java.lang.String"/>
+	<field name="cod_recinto" class="java.lang.Integer"/>
+	<field name="idcandidato" class="java.lang.Integer"/>
+	<field name="fr_id_organizacion" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="can_orden" class="java.lang.Integer"/>
+	<field name="imagen" class="java.lang.String"/>
+	<field name="activo" class="java.lang.Integer"/>
+	<field name="es_provincial" class="java.lang.Integer"/>
+	<field name="fr_id_provincia" class="java.lang.Integer"/>
+	<field name="es_cantonal" class="java.lang.Integer"/>
+	<field name="fr_id_canton" class="java.lang.Integer"/>
+	<field name="es_parroquial" class="java.lang.Integer"/>
+	<field name="fr_id_parroquia" class="java.lang.Integer"/>
+	<field name="idzonas" class="java.lang.Integer"/>
+	<field name="parroquia_nombre" class="java.lang.String"/>
+	<field name="nombre_zona" class="java.lang.String"/>
+	<field name="est_parroquia" class="java.lang.String"/>
+	<field name="num_elec_zona" class="java.lang.Integer"/>
+	<field name="num_elec_hombres_zona" class="java.lang.Integer"/>
+	<field name="num_elec_mujeres_zona" class="java.lang.Integer"/>
+	<field name="num_juntas" class="java.lang.Integer"/>
+	<field name="num_junta_hombre" class="java.lang.Integer"/>
+	<field name="num_junta_mujeres" class="java.lang.Integer"/>
+	<field name="num_elec_zona_max" class="java.lang.Integer"/>
+	<field name="num_junta_mujeres_ini" class="java.lang.String"/>
+	<field name="num_junta_mujeres_fin" class="java.lang.String"/>
+	<field name="num_junta_hombre_ini" class="java.lang.Integer"/>
+	<field name="num_junta_hombre_fin" class="java.lang.String"/>
+	<field name="nombre_parroquia" class="java.lang.String"/>
+	<field name="estado_parroquia" class="java.lang.String"/>
+	<field name="nombre_canton" class="java.lang.String"/>
+	<field name="tiene_circunscipciones" class="java.lang.Boolean"/>
+	<field name="fr_id_canton_pertenece" class="java.lang.Integer"/>
+	<field name="iddignidad" class="java.lang.Integer"/>
+	<field name="nombre_dignidad" class="java.lang.String"/>
+	<field name="fr_id_id_provincia" class="java.lang.Integer"/>
+	<field name="provincia_nombre" class="java.lang.String"/>
+	<field name="fr_id_eleccion" class="java.lang.Integer"/>
+	<field name="eleccion_nombre" class="java.lang.String"/>
+	<field name="num_candidato_lista" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="461" y="2" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VOTOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="132" y="2" width="265" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ORGANIZACION/CANDIDATO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="2" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LISTA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="461" y="5" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{num_votos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="132" y="6" width="265" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="12" y="4" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fr_id_organizacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

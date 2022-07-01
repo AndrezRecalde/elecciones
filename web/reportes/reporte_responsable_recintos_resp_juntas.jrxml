@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporte_responsable_recintos_resp_juntas" language="groovy" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0000000000000007"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id_recinto" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT j.junta_nombre, j.responsable,j.responsable_cedula,j.responsable_telefono,r.responsable_ci,r.responsable_nombres,r.responsable_telefono
+,r.nombre_recinto FROM junta as j
+ INNER JOIN recintos AS r on r.cod_recinto=j.cod_recinto
+ WHERE r.cod_recinto=$P{id_recinto}
+order by j.num_junta asc ,j.genero]]>
+	</queryString>
+	<field name="junta_nombre" class="java.lang.String"/>
+	<field name="responsable" class="java.lang.String"/>
+	<field name="responsable_cedula" class="java.lang.String"/>
+	<field name="responsable_telefono" class="java.lang.String"/>
+	<field name="responsable_ci" class="java.lang.String"/>
+	<field name="responsable_nombres" class="java.lang.String"/>
+	<field name="nombre_recinto" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80">
+			<staticText>
+				<reportElement x="258" y="3" width="279" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PADRÓN DE DELEGADOS DE JRV]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="36" y="26" width="747" height="54"/>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement x="175" y="53" width="296" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{responsable_nombres}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="567" y="33" width="216" height="40"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombre_recinto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="49" y="33" width="126" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[C.I. COORDINADOR:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="53" width="105" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COORDINADOR:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="467" y="33" width="105" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECINTO:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="175" y="72" width="292" height="1"/>
+			</line>
+			<rectangle>
+				<reportElement x="175" y="33" width="23" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="198" y="33" width="23" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="221" y="33" width="23" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="244" y="33" width="23" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="290" y="33" width="23" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="267" y="33" width="23" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="359" y="33" width="23" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="313" y="33" width="23" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="336" y="33" width="23" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="397" y="33" width="23" height="20"/>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement x="178" y="28" width="245" height="30"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{responsable_ci}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="386" y="42" width="7" height="1"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="112" y="0" width="98" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="36" y="0" width="76" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="210" y="0" width="324" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="534" y="0" width="249" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="126" y="0" width="84" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CÉDULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="0" width="312" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESPONSABLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="618" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="0" width="51" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JUNTA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="46" splitType="Stretch">
+			<rectangle>
+				<reportElement x="112" y="0" width="98" height="46"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="210" y="0" width="324" height="46"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="36" y="0" width="76" height="46"/>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement x="126" y="13" width="72" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{responsable_cedula}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="222" y="13" width="300" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{responsable}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="534" y="0" width="249" height="46"/>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement x="46" y="13" width="51" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{junta_nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="34" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="743" y="4" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="600" y="4" width="143" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
