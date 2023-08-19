@@ -1,0 +1,18 @@
+{
+    "total": "1402",
+    "diff": 14,
+    "data": [
+      {
+        "label": "Actas Ingresadas",
+        "count": "204,001",
+        "part": 60,
+        "color": "#47d6ab"
+      },
+      {
+        "label": "Actas Por Ingresar",
+        "count": "121,017",
+        "part": 40,
+        "color": "#03141a"
+      }
+    ]
+  }

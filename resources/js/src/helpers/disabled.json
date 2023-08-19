@@ -1,0 +1,18 @@
+{
+    "total": "345,765",
+    "diff": 18,
+    "disabled": [
+      {
+        "label": "Actas Ingresadas",
+        "count": "204,001",
+        "part": 0,
+        "color": "#dcdcdc"
+      },
+      {
+        "label": "Actas Por Ingresar",
+        "count": "121,017",
+        "part": 100,
+        "color": "#dcdcdc"
+      }
+    ]
+  }

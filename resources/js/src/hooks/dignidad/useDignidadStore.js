@@ -1,0 +1,54 @@
+import { useDispatch, useSelector } from "react-redux";
+import { onClearDignidades, onLoadDignidades } from "../../store/eleccion/dignidad/dignidadSlice";
+import eleccionApi from "../../api/eleccionApi";
+import Swal from "sweetalert2";
+
+export const useDignidadStore = () => {
+    const { dignidades } = useSelector((state) => state.dignidad);
+
+    const dispatch = useDispatch();
+
+    const startLoadDignidades = async () => {
+        try {
+            const { data } = await eleccionApi.get("/dignidades");
+            const { dignidades } = data;
+            dispatch(onLoadDignidades(dignidades));
+        } catch (error) {
+            console.log(error);
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: error.response ? error.response.data.message : error,
+                confirmButtonColor: "#c81d11",
+            });
+        }
+    };
+
+    const startLoadAdminDignidades = async() => {
+        try {
+            const { data } = await eleccionApi.get("/admin/dignidades");
+            const { dignidades } = data;
+            dispatch(onLoadDignidades(dignidades));
+        } catch (error) {
+            console.log(error);
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: error.response ? error.response.data.message : error,
+                confirmButtonColor: "#c81d11",
+            });
+        }
+    }
+
+    const startClearDignidades = () => {
+        dispatch(onClearDignidades());
+    }
+
+    return {
+        dignidades,
+
+        startLoadDignidades,
+        startClearDignidades,
+        startLoadAdminDignidades
+    };
+};
