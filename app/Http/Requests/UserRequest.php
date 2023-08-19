@@ -42,6 +42,7 @@ class UserRequest extends FormRequest
         return [
             'nombres.required'  =>  'Los nombres son requeridos',
             'usuario.required'  =>  'El usuario es requerido',
+            'usuario.unique'  =>  'El usuario ya está registrado',
             'es_provincial.required'    =>  'Especifica si el usuario es Provincial',
             'provincia_id.required'     =>  'Especifica la provincia del usuario',
             'activo.required'           =>  'Especifica el estado del usuario',
@@ -51,6 +52,6 @@ class UserRequest extends FormRequest
 
     protected function failedValidation(Validator $validator)
     {
-        throw new HttpResponseException(response()->json(['errores' => $validator->errors()],422));
+        throw new HttpResponseException(response()->json(['errores' => $validator->errors()], 422));
     }
 }
