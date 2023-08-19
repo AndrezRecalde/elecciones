@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('acta_id');
             $table->unsignedInteger('candidato_id');
-            $table->unsignedInteger('num_votos')->default('0')->change();
+            $table->unsignedInteger('num_votos')->default('0');
             $table->timestamps();
         });
     }
