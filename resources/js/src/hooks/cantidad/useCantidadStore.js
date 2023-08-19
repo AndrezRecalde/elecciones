@@ -15,11 +15,15 @@ export const useCantidadStore = () => {
                 const { total } = data;
                 dispatch(onLoadCantidadCandidatos(total));
         } catch (error) {
-            console.log(error);
+            //console.log(error);
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: error.response ? error.response.data.msg : error,
+                text: error.response.data.msg
+                    ? error.response.data.msg
+                    : error.response.data.msg
+                    ? error.response.data.errores
+                    : Object.values(error.response.data.errores),
                 confirmButtonColor: "#c81d11",
             });
         }

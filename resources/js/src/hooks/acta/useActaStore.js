@@ -46,11 +46,15 @@ export const useActaStore = () => {
             const { infoJunta } = data;
             dispatch(onActivateJunta(infoJunta));
         } catch (error) {
-            console.log(error);
+            //console.log(error);
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: error.response ? error.response.data.msg : error,
+                text: error.response.data.msg
+                    ? error.response.data.msg
+                    : error.response.data.msg
+                    ? error.response.data.errores
+                    : Object.values(error.response.data.errores),
                 confirmButtonColor: "#c81d11",
             });
         }
@@ -68,11 +72,15 @@ export const useActaStore = () => {
                 return;
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: error.response ? error.response.data.msg : error,
+                text: error.response.data.msg
+                    ? error.response.data.msg
+                    : error.response.data.msg
+                    ? error.response.data.errores
+                    : Object.values(error.response.data.errores),
                 confirmButtonColor: "#c81d11",
             });
         }
@@ -99,7 +107,16 @@ export const useActaStore = () => {
             const { candidatos } = data;
             dispatch(onActivateCandidatos(candidatos));
         } catch (error) {
-            console.log(error);
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: error.response.data.msg
+                    ? error.response.data.msg
+                    : error.response.data.msg
+                    ? error.response.data.errores
+                    : Object.values(error.response.data.errores),
+                confirmButtonColor: "#c81d11",
+            });
         }
     };
 
@@ -118,11 +135,15 @@ export const useActaStore = () => {
             });
             dispatch(onClearActa());
         } catch (error) {
-            console.log(error);
+            //console.log(error);
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: error.response ? error.response.data.msg : error,
+                text: error.response.data.msg
+                    ? error.response.data.msg
+                    : error.response.data.msg
+                    ? error.response.data.errores
+                    : Object.values(error.response.data.errores),
                 confirmButtonColor: "#c81d11",
             });
         }
@@ -140,11 +161,15 @@ export const useActaStore = () => {
             });
             dispatch(onClearActa());
         } catch (error) {
-            console.log(error);
+            //console.log(error);
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: error.response ? error.response.data.msg : error,
+                text: error.response.data.msg
+                    ? error.response.data.msg
+                    : error.response.data.msg
+                    ? error.response.data.errores
+                    : Object.values(error.response.data.errores),
                 confirmButtonColor: "#c81d11",
             });
         }

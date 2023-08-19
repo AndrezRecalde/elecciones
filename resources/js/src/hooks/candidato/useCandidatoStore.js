@@ -26,11 +26,15 @@ export const useCandidatoStore = () => {
             const { candidatos } = data;
             dispatch(onCandidatos(candidatos));
         } catch (error) {
-            console.log(error);
+            //console.log(error);
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: error.response ? error.response.data.msg : error,
+                text: error.response.data.msg
+                    ? error.response.data.msg
+                    : error.response.data.msg
+                    ? error.response.data.errores
+                    : Object.values(error.response.data.errores),
                 confirmButtonColor: "#c81d11",
             });
         }
@@ -68,11 +72,15 @@ export const useCandidatoStore = () => {
                 timer: 1000,
             });
         } catch (error) {
-            console.log(error);
+            //console.log(error);
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: error.response ? error.response.data.msg : error,
+                text: error.response.data.msg
+                    ? error.response.data.msg
+                    : error.response.data.msg
+                    ? error.response.data.errores
+                    : Object.values(error.response.data.errores),
                 confirmButtonColor: "#c81d11",
             });
         }
@@ -96,11 +104,15 @@ export const useCandidatoStore = () => {
                     //startLoadOrganizaciones();
                     dispatch(onDeleteCandidato());
                 } catch (error) {
-                    console.log(error);
+                    //console.log(error);
                     Swal.fire({
                         icon: "error",
                         title: "Oops...",
-                        text: error.response ? error.response.data.msg : error,
+                        text: error.response.data.msg
+                            ? error.response.data.msg
+                            : error.response.data.msg
+                            ? error.response.data.errores
+                            : Object.values(error.response.data.errores),
                         confirmButtonColor: "#c81d11",
                     });
                 }
@@ -123,11 +135,15 @@ export const useCandidatoStore = () => {
             });
             startLoadCandidatos();
         } catch (error) {
-            console.log(error);
+            //console.log(error);
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: error.response ? error.response.data.msg : error,
+                text: error.response.data.msg
+                    ? error.response.data.msg
+                    : error.response.data.msg
+                    ? error.response.data.errores
+                    : Object.values(error.response.data.errores),
                 confirmButtonColor: "#c81d11",
             });
         }

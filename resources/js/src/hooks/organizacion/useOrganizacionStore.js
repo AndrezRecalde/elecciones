@@ -26,7 +26,16 @@ export const useOrganizacionStore = () => {
             const { organizaciones } = data;
             dispatch(onOrganizaciones(organizaciones));
         } catch (error) {
-            console.log(error);
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: error.response.data.msg
+                    ? error.response.data.msg
+                    : error.response.data.msg
+                    ? error.response.data.errores
+                    : Object.values(error.response.data.errores),
+                confirmButtonColor: "#c81d11",
+            });
         }
     };
 
@@ -71,11 +80,15 @@ export const useOrganizacionStore = () => {
                 timer: 1000,
             });
         } catch (error) {
-            console.log(error);
+            //console.log(error);
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: error.response ? error.response.data.msg : error,
+                text: error.response.data.msg
+                    ? error.response.data.msg
+                    : error.response.data.msg
+                    ? error.response.data.errores
+                    : Object.values(error.response.data.errores),
                 confirmButtonColor: "#c81d11",
             });
         }
@@ -102,7 +115,11 @@ export const useOrganizacionStore = () => {
                     Swal.fire({
                         icon: "error",
                         title: "Oops...",
-                        text: error.response ? error.response.data.msg : error,
+                        text: error.response.data.msg
+                            ? error.response.data.msg
+                            : error.response.data.msg
+                            ? error.response.data.errores
+                            : Object.values(error.response.data.errores),
                         confirmButtonColor: "#c81d11",
                     });
                 }

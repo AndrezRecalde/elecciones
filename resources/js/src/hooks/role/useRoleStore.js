@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import eleccionApi from "../../api/eleccionApi";
 import { onClearRoles, onLoadRoles } from "../../store/admin/roles/roleSlice";
+import eleccionApi from "../../api/eleccionApi";
+
 
 export const useRoleStore = () => {
     const { roles } = useSelector((state) => state.role);
@@ -12,11 +13,15 @@ export const useRoleStore = () => {
             const { roles } = data;
             dispatch(onLoadRoles(roles));
         } catch (error) {
-            console.log(error);
+            //console.log(error);
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: error.response ? error.response.data.message : error,
+                text: error.response.data.msg
+                    ? error.response.data.msg
+                    : error.response.data.msg
+                    ? error.response.data.errores
+                    : Object.values(error.response.data.errores),
                 confirmButtonColor: "#c81d11",
             });
         }

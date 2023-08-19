@@ -8,8 +8,8 @@ export const useNotification = () => {
             message: message,
             styles: (theme) => ({
                 root: {
-                    backgroundColor: theme.colors.blue[7],
-                    borderColor: theme.colors.blue[6],
+                    backgroundColor: theme.colors.indigo[7],
+                    borderColor: theme.colors.indigo[6],
 
                     "&::before": { backgroundColor: theme.white },
                 },
@@ -19,7 +19,7 @@ export const useNotification = () => {
                 closeButton: {
                     color: theme.white,
                     "&:hover": {
-                        backgroundColor: theme.colors.blue[7],
+                        backgroundColor: theme.colors.indigo[7],
                     },
                 },
             }),
