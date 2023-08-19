@@ -15,6 +15,7 @@ import { StatJuntasParroquiales } from "./dashboard/juntas/StatJuntasParroquiale
 import { StatPrefecto } from "./dashboard/prefectos/StatPrefecto";
 import { StatPresidente } from "./dashboard/presidentes/StatPresidente";
 import { StatDashboard } from './dashboard/stats/StatDashboard'
+import { BannerStat } from "./dashboard/banner/BannerStat";
 
 /* Digitacion */
 import { CardActaDetalleForm } from "./digitacion/CardActaDetalleForm";
@@ -105,6 +106,7 @@ export {
     StatPrefecto,
     StatPresidente,
     StatDashboard,
+    BannerStat,
 
     /* Digitacion */
     CardActaDetalleForm,
