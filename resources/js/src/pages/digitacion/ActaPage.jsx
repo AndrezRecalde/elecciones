@@ -25,8 +25,8 @@ export const ActaPage = () => {
             votos_validos: "",
             votos_blancos: "",
             votos_nulos: "",
-            cuadrada: false,
-            legible: false,
+            cuadrada: true,
+            legible: true,
             num_votos: [],
         },
         validate: {

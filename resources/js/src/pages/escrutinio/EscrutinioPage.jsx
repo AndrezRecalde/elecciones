@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Badge, Container, Divider, Group } from "@mantine/core";
+import { Badge, Divider, Group } from "@mantine/core";
 import { ChartEscrutinio, TablaEscrutinio, TitleSections } from "../../components";
 import { useEscrutinioStore, useFechaActual } from "../../hooks";
 
@@ -17,7 +17,7 @@ export const EscrutinioPage = () => {
 
 
     return (
-        <Container size="lg">
+        <>
             <TitleSections
                 title="Avance de Escrutinio por Dignidades"
                 ta="center"
@@ -33,6 +33,6 @@ export const EscrutinioPage = () => {
             <Divider my="sm" />
             <ChartEscrutinio />
             <TablaEscrutinio />
-        </Container>
+        </>
     );
 };

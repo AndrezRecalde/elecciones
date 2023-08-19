@@ -19,7 +19,7 @@ export const PrivatePages = () => {
     return (
         <>
             <HeaderMenu />
-            <Container size="lg">
+            <Container size="xl">
                 <Routes>
                     <Route path="home" element={<DashboardPage />} />
                     <Route path="admin/usuarios" element={<UsuariosPage />} />

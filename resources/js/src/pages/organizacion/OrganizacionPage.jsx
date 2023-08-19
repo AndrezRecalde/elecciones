@@ -1,4 +1,4 @@
-import { Card, Container } from "@mantine/core";
+import { Card } from "@mantine/core";
 import {
     ModalOrganizacion,
     TableOrganizaciones,
@@ -20,7 +20,7 @@ export const OrganizacionPage = () => {
     }, []);
 
     return (
-        <Container size="lg">
+        <>
             <Card
                 withBorder
                 radius="md"
@@ -37,6 +37,6 @@ export const OrganizacionPage = () => {
                 </Card.Section>
             </Card>
             <ModalOrganizacion />
-        </Container>
+        </>
     );
 };

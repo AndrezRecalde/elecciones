@@ -6,7 +6,7 @@ import { useActasResStore } from "../../../hooks";
 
 export const TableActas = () => {
     const { colorScheme } = useMantineTheme();
-    const { actas } = useActasResStore();
+    const { isLoading, actas } = useActasResStore();
 
     const columns = useMemo(
         () => [
@@ -41,6 +41,7 @@ export const TableActas = () => {
             highlightOnHover: false,
             withColumnBorders: true,
             withBorder: colorScheme === "light",
+            state: { showProgressBars: isLoading },
         },
         renderTopToolbarCustomActions: () => {
             return (

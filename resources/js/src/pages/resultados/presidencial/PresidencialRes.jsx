@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Container, Grid } from "@mantine/core";
+import { Grid } from "@mantine/core";
 import {
     CardBusquedaDignidad,
     ChartResultado,
@@ -45,7 +45,7 @@ export const PresidencialRes = () => {
     }, [errores]);
 
     return (
-        <Container size="lg">
+        <>
             <CardBusquedaDignidad
                 titlePage="Resultados | Candidatos Presidenciales"
                 dig={DIGNIDAD_CURRENT}
@@ -68,6 +68,6 @@ export const PresidencialRes = () => {
 
                 </Grid>
             ) : null}
-        </Container>
+        </>
     );
 };

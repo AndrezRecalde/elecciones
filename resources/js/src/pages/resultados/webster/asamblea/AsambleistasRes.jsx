@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Container, Divider, Grid } from "@mantine/core";
+import { Divider, Grid } from "@mantine/core";
 import {
     BusquedaWebster,
     ChartResultado,

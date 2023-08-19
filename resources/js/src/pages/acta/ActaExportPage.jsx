@@ -9,13 +9,17 @@ import { useEffect } from "react";
 
 export const ActaExportPage = () => {
     const { profile } = useAuthStore();
-    const { pageLoad } = useActasResStore();
+    const { pageLoad, startClearActas } = useActasResStore();
     const { startLoadDignidades } = useDignidadStore();
     const { startLoadCantones } = useStateStore();
 
     useEffect(() => {
         startLoadDignidades();
         startLoadCantones(profile?.provincia_id);
+
+        return () => {
+            startClearActas();
+        }
     }, []);
 
     return (

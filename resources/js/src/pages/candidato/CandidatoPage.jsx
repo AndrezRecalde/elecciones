@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Card, Container } from "@mantine/core";
+import { Card } from "@mantine/core";
 import {
     ModalActivateCandidato,
     ModalCandidato,
@@ -20,7 +20,7 @@ export const CandidatoPage = () => {
     }, []);
 
     return (
-        <Container size="lg">
+        <>
             <Card
                 withBorder
                 radius="md"
@@ -38,6 +38,6 @@ export const CandidatoPage = () => {
             </Card>
             <ModalCandidato />
             <ModalActivateCandidato />
-        </Container>
+        </>
     );
 };

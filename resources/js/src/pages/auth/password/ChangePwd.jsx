@@ -16,7 +16,7 @@ export const ChangePwd = () => {
 
     return (
         <Grid justify="center">
-            <Grid.Col md={7} lg={7} xl={7}>
+            <Grid.Col md={6} lg={6} xl={6}>
                 <PasswordForm form={form} />
             </Grid.Col>
         </Grid>
