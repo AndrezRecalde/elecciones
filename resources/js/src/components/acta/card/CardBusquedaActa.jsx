@@ -32,11 +32,11 @@ export const CardBusquedaActa = ({ titlePage }) => {
         if (!errors.hasOwnProperty("dignidad_id")) {
             if (!tipo_acta) {
                 startLoadAllActas(form.values);
-                console.log(form.values);
+                //console.log(form.values);
                 form.reset();
             } else if (tipo_acta) {
                 startLoadActas(form.values);
-                console.log(form.values);
+                //console.log(form.values);
                 form.reset();
             }
         }
@@ -48,11 +48,11 @@ export const CardBusquedaActa = ({ titlePage }) => {
         if (!errors.hasOwnProperty("dignidad_id")) {
             if (!tipo_acta) {
                 startExportExcelActasAll(form.values);
-                console.log(form.values);
+                //console.log(form.values);
                 form.reset();
             } else if (tipo_acta) {
                 startExportExcelActas(form.values);
-                console.log(form.values);
+                //console.log(form.values);
                 form.reset();
             }
         }

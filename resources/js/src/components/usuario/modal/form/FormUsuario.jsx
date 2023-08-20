@@ -46,7 +46,7 @@ export const FormUsuario = ({ form }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(form.values);
+        //console.log(form.values);
         startAddUsuario(form.values);
         form.reset();
         modalActionUsuario(0);

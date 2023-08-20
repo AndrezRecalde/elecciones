@@ -1,10 +1,7 @@
-import { Avatar, Card, Grid, Group, NumberInput, Text } from "@mantine/core";
-import { useCreateStyles } from "../../hooks/styled/useCreateStyles";
-
-import up2 from "../../assets/images/up2.png";
-import { useActaStore } from "../../hooks";
 import { useEffect } from "react";
-import { TitleSections } from "../elements/TitleSections";
+import { Avatar, Card, Grid, Group, NumberInput, Text } from "@mantine/core";
+import { useActaStore, useCreateStyles } from "../../hooks";
+import { TitleSections } from "../../components";
 
 export const CardActaDetalleForm = ({ actaForm }) => {
     const { useStyles } = useCreateStyles();
@@ -31,7 +28,7 @@ export const CardActaDetalleForm = ({ actaForm }) => {
             activateCandidatos?.map((candidato, index) =>
                 actaForm.setFieldValue(
                     `num_votos.${index}`,
-                    candidato?.num_votos ? candidato?.num_votos : ""
+                    candidato?.num_votos ?? candidato?.num_votos
                 )
             );
             return;

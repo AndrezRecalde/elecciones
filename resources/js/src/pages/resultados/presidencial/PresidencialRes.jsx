@@ -7,7 +7,11 @@ import {
     StatVotacion,
     TablaResultado,
 } from "../../../components";
-import { useAuthStore, useNotification, useResultadoStore } from "../../../hooks";
+import {
+    useAuthStore,
+    useResultadoStore,
+} from "../../../hooks";
+import Swal from "sweetalert2";
 
 const DIGNIDAD_CURRENT = 1;
 
@@ -23,10 +27,10 @@ export const PresidencialRes = () => {
         startLoadResultadosCandidatos,
         startClearResultados,
     } = useResultadoStore();
-    const { viewNotificationNotResults } = useNotification();
+    /* const { viewNotificationNotResults } = useNotification(); */
 
     const { provincia_id } = profile;
-    const valores = {dignidad_id: DIGNIDAD_CURRENT, provincia_id}
+    const valores = { dignidad_id: DIGNIDAD_CURRENT, provincia_id };
 
     useEffect(() => {
         startLoadTotalDeVotos(valores);
@@ -40,7 +44,11 @@ export const PresidencialRes = () => {
 
     useEffect(() => {
         if (errores !== undefined) {
-            viewNotificationNotResults("Sin registro", "Sin registros de resultados para Presidencias")
+            /* viewNotificationNotResults(
+                "Sin registro",
+                "Sin registros de resultados para Presidencias"
+            ); */
+            Swal.fire("Error", errores, "info");
         }
     }, [errores]);
 
@@ -65,7 +73,6 @@ export const PresidencialRes = () => {
                     <Grid.Col xs={12} sm={12} md={12} lg={12} xl={12}>
                         <TablaResultado />
                     </Grid.Col>
-
                 </Grid>
             ) : null}
         </>

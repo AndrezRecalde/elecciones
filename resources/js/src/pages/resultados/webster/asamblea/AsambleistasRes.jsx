@@ -8,7 +8,11 @@ import {
     TablaWebster,
     TitleSections,
 } from "../../../../components";
-import { useAuthStore, useNotification, useResultadoStore } from "../../../../hooks";
+import {
+    useAuthStore,
+    useResultadoStore,
+} from "../../../../hooks";
+import Swal from "sweetalert2";
 
 const DIGNIDAD_CURRENT = 2;
 
@@ -24,7 +28,7 @@ export const AsambleistasRes = () => {
         startLoadResultadosCandidatos,
         startClearResultados,
     } = useResultadoStore();
-    const { viewNotificationNotResults } = useNotification();
+    /* const { viewNotificationNotResults } = useNotification(); */
 
     const { provincia_id } = profile;
 
@@ -42,13 +46,19 @@ export const AsambleistasRes = () => {
 
     useEffect(() => {
         if (errores !== undefined) {
-            viewNotificationNotResults("Sin registro", errores);
+            /* viewNotificationNotResults("Sin registro", errores); */
+            Swal.fire("Error", errores, "info");
         }
     }, [errores]);
 
     return (
         <>
-            <TitleSections title="Resultados | Webster Asambleístas" ta="center" fw={700} color="black" />
+            <TitleSections
+                title="Resultados | Webster Asambleístas"
+                ta="center"
+                fw={700}
+                color="black"
+            />
             <Divider my="sm" />
 
             <Grid>

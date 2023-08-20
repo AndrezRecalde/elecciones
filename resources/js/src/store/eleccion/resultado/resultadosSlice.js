@@ -33,6 +33,9 @@ export const resultadosSlice = createSlice({
             state.resultadoCandidatos = null;
 
         },
+        onClearErrores: (state) => {
+            state.errores = undefined;
+        },
         onClearResultados: (state) => {
             state.totalDeVotos = null;
             state.totalActasIngresadas = null;
@@ -50,5 +53,6 @@ export const {
     onLoadTotalJuntas,
     onLoadResultadosCandidatos,
     onErrores,
+    onClearErrores,
     onClearResultados,
 } = resultadosSlice.actions;

@@ -43,7 +43,7 @@ export const useCandidatoStore = () => {
     const startAddCandidato = async (candidato) => {
         try {
             if (candidato.id) {
-                console.log(candidato);
+                //console.log(candidato);
                 const { data } = await eleccionApi.put(
                     `/admin/update/candidato/${candidato.id}`,
                     candidato

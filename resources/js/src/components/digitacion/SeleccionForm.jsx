@@ -96,7 +96,7 @@ export const SeleccionForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(searchForm.values);
+        //console.log(searchForm.values);
         startStorageFields(searchForm.values);
         startLoadInfoJunta(junta_id);
         startLoadActa(dignidad_id, junta_id);

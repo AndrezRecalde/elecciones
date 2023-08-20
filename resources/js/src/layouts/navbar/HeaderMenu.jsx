@@ -87,7 +87,7 @@ const mockdata = [
 ];
 
 export const HeaderMenu = () => {
-    const { profile } = useAuthStore();
+    const { profile, startLogout } = useAuthStore();
     const { useStyles } = useCreateStyles();
     const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
         useDisclosure(false);
@@ -96,8 +96,8 @@ export const HeaderMenu = () => {
     const navigate = useNavigate();
 
     const handleActa = () => {
-        navigate("/admin/actas")
-    }
+        navigate("/admin/actas");
+    };
 
     const links = mockdata.map((item) => (
         <UnstyledButton
@@ -137,10 +137,15 @@ export const HeaderMenu = () => {
                         <NavLink to="/" className={classes.link}>
                             Inicio
                         </NavLink>
-                        <NavLink to="/digitacion" className={classes.link}>
-                            Digitación
-                        </NavLink>
-                        {profile.role === "Superadministrador" ? (
+                        {profile.role === "Superadministrador" ||
+                        profile.role === "Digitador" ? (
+                            <NavLink to="/digitacion" className={classes.link}>
+                                Digitación
+                            </NavLink>
+                        ) : null}
+
+                        {profile.role === "Superadministrador" ||
+                        profile.role === "Visualizador" ? (
                             <HoverCard
                                 width={600}
                                 position="bottom"
@@ -184,10 +189,14 @@ export const HeaderMenu = () => {
                                                     Exportar Actas
                                                 </Text>
                                                 <Text size="xs" color="dimmed">
-                                                    Visualiza y exporta las actas previamente ingresadas
+                                                    Visualiza y exporta las
+                                                    actas previamente ingresadas
                                                 </Text>
                                             </div>
-                                            <Button variant="default" onClick={handleActa}>
+                                            <Button
+                                                variant="default"
+                                                onClick={handleActa}
+                                            >
                                                 Ver actas
                                             </Button>
                                         </Group>
@@ -198,10 +207,16 @@ export const HeaderMenu = () => {
                         {profile.role === "Superadministrador" ||
                         profile.role === "Administrador" ? (
                             <>
-                                <NavLink to="/escrutinio" className={classes.link}>
+                                <NavLink
+                                    to="/escrutinio"
+                                    className={classes.link}
+                                >
                                     Escrutinio
                                 </NavLink>
-                                <NavLink to="/admin/tendencia" className={classes.link}>
+                                <NavLink
+                                    to="/admin/tendencia"
+                                    className={classes.link}
+                                >
                                     Tendencia
                                 </NavLink>
                             </>
@@ -241,7 +256,8 @@ export const HeaderMenu = () => {
                     <NavLink to="/digitacion" className={classes.link}>
                         Digitación
                     </NavLink>
-                    {profile.role === "Superadministrador" ? (
+                    {profile.role === "Superadministrador" ||
+                    profile.role === "Visualizador" ? (
                         <UnstyledButton
                             className={classes.link}
                             onClick={toggleLinks}
@@ -276,7 +292,11 @@ export const HeaderMenu = () => {
                             theme.colorScheme === "dark" ? "dark.5" : "gray.1"
                         }
                     />
-
+                    <Group position="center" grow pb="xl" px="md">
+                        <Button color="red.7" onClick={startLogout}>
+                            Cerrar sesión
+                        </Button>
+                    </Group>
                     <Group position="center" grow pb="xl" px="md">
                         <UserMenu />
                     </Group>

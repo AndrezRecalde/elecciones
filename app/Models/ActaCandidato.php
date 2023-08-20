@@ -21,7 +21,7 @@ class ActaCandidato extends Model
     ];
 
     protected $attributes = [
-        'num_votos' => '0'
+        'num_votos' => 0
     ];
 
     function scopeDignidad($query, $dignidad_id)

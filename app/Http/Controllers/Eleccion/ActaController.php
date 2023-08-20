@@ -27,7 +27,11 @@ class ActaController extends Controller
 
     public function existeJuntaDignidad(Request $request)
     {
-        $acta = Acta::where('junta_id', $request->junta_id)
+        $acta = Acta::from('actas as a')
+            ->selectRaw('a.*, u.nombres as creador, us.nombres as actualizador')
+            ->join('users as u', 'u.id', 'a.user_add')
+            ->leftJoin('users as us', 'us.id', 'a.user_update')
+            ->where('junta_id', $request->junta_id)
             ->where('dignidad_id', $request->dignidad_id)
             ->first();
 

@@ -78,7 +78,7 @@ export const SeleccionForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(seleccion.values);
+        //console.log(seleccion.values);
     };
 
     return (

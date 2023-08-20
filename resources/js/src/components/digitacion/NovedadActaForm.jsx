@@ -17,13 +17,18 @@ export const NovedadActaForm = ({ actaForm }) => {
     const [totales, setTotales] = useState(0);
     const { useStyles } = useCreateStyles();
     const { classes } = useStyles();
-    const { startClearActa, startActivateSearch } = useActaStore();
+    const { startClearActa, startActivateSearch, activateActa } =
+        useActaStore();
 
     const { num_votos, votos_blancos, votos_nulos, votos_validos } =
         actaForm.values;
 
     useEffect(() => {
-        setTotales(num_votos.reduce((a, b) => a + b, 0));
+        setTotales(
+            num_votos
+                .filter((num) => num !== undefined)
+                .reduce((a, b) => parseInt(a) + parseInt(b), 0)
+        );
     }, [num_votos]);
 
     const handleResetSearch = () => {
@@ -52,7 +57,9 @@ export const NovedadActaForm = ({ actaForm }) => {
                     <div>
                         <TitleSections
                             title="Si el acta no es legible, quite el check."
-                            fz="md" tt="" fw={500}
+                            fz="md"
+                            tt=""
+                            fw={500}
                         />
                     </div>
                 </Group>
@@ -72,8 +79,13 @@ export const NovedadActaForm = ({ actaForm }) => {
                         })}
                     />
                     <div>
-                        <TitleSections title="Si los valores del acta no coinciden, quite el
-                            check." fz="md" tt="" fw={500} />
+                        <TitleSections
+                            title="Si los valores del acta no coinciden, quite el
+                            check."
+                            fz="md"
+                            tt=""
+                            fw={500}
+                        />
                     </div>
                 </Group>
                 <Flex gap="xs" align="center" direction="row" mt={25}>
@@ -96,6 +108,51 @@ export const NovedadActaForm = ({ actaForm }) => {
                         Ingresar Acta
                     </Button>
                 </Flex>
+                {activateActa?.actualizador ? (
+                    <Card
+                        withBorder
+                        mt={20}
+                        radius="md"
+                        p="sm"
+                        className={classes.cardUserInfo}
+                    >
+                        <TitleSections
+                            title="Acta modificada por: "
+                            fw={700}
+                            fz="xs"
+                            color="black"
+                        />
+                        <TitleSections
+                            title={`${activateActa?.actualizador}`}
+                            fw={500}
+                            fz="lg"
+                            tt=""
+                            color="black"
+                        />
+                    </Card>
+                ) : (
+                    <Card
+                        withBorder
+                        mt={20}
+                        radius="md"
+                        p="sm"
+                        className={classes.cardUserInfo}
+                    >
+                        <TitleSections
+                            title="Acta ingresada por: "
+                            fw={700}
+                            fz="xs"
+                            color="black"
+                        />
+                        <TitleSections
+                            title={`${activateActa?.creador}`}
+                            fw={500}
+                            fz="lg"
+                            tt=""
+                            color="black"
+                        />
+                    </Card>
+                )}
             </Card>
             <Grid mt={10} mb={10}>
                 <Grid.Col span={6}>
@@ -142,9 +199,9 @@ export const NovedadActaForm = ({ actaForm }) => {
                         />
                         <Text fz="lg" fw={500} className={classes.titleTotales}>
                             {(
-                                parseInt(totales * 1) +
-                                parseInt(votos_blancos * 1) +
-                                parseInt(votos_nulos * 1)
+                                votos_blancos +
+                                votos_nulos +
+                                parseInt(totales * 1)
                             ).toString()}
                         </Text>
                     </Card>

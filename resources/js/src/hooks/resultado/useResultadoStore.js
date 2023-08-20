@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
+    onClearErrores,
     onClearResultados,
     onErrores,
     onLoadResultadosCandidatos,
@@ -27,7 +28,7 @@ export const useResultadoStore = () => {
         canton_id = 0,
         parroquia_id = 0,
     }) => {
-        console.log(dignidad_id)
+        //console.log(dignidad_id)
         try {
             const { data } = await eleccionApi.post("/resultados/total/votos", {
                 dignidad_id,
@@ -36,7 +37,10 @@ export const useResultadoStore = () => {
                 parroquia_id,
             });
             if(data.msg){
-                dispatch(onErrores(data.msg))
+                dispatch(onErrores(data.msg));
+                setTimeout(() => {
+                    dispatch(onClearErrores());
+                }, 20);
             } else {
                 const { totalDeVotos } = data;
                 dispatch(onLoadTotalDeVotos(totalDeVotos));

@@ -63,7 +63,7 @@ export const TableCandidatos = () => {
 
     const handleEdit = useCallback(
         (selected) => {
-            console.log(selected);
+            //console.log(selected);
             setActivateCandidato(selected);
             modalActionCandidato(1);
         },
@@ -72,7 +72,7 @@ export const TableCandidatos = () => {
 
     const handleDelete = useCallback(
         (selected) => {
-            console.log(selected);
+            //console.log(selected);
             setActivateCandidato(selected);
             startDeleteCandidato(selected);
         },

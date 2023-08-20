@@ -146,6 +146,9 @@ export const useCreateStyles = () => {
 
         cardTotales: {
             backgroundImage: theme.fn.gradient({ from: 'indigo.3', to: 'indigo.2', deg: 60 }),
+        },
+        cardUserInfo: {
+            backgroundImage: theme.fn.gradient({ from: 'blue.2', to: 'blue.5', deg: 60 }),
         }
     }));
     return {

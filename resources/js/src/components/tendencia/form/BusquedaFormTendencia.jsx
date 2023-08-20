@@ -45,7 +45,7 @@ export const BusquedaFormTendencia = ({ form }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(form.values);
+        //console.log(form.values);
         startLoadTendencias(form.values);
     };
 
