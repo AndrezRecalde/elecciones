@@ -60,7 +60,7 @@ class UserController extends Controller
 
                 if ($request->filled('roles')) {
                     $usuario->roles()->detach();
-                    $usuario->assignRole($request->roles);
+                    $usuario->assignRole($request->role);
                 }
                 return response()->json(['status' => MsgStatusEnum::Success, 'msg' => MsgStatusEnum::Creacion], 201);
             } else {
