@@ -47,7 +47,7 @@ export const AsambleistasRes = () => {
     useEffect(() => {
         if (errores !== undefined) {
             /* viewNotificationNotResults("Sin registro", errores); */
-            Swal.fire("Error", errores, "info");
+            Swal.fire("Información", errores, "info");
         }
     }, [errores]);
 

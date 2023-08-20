@@ -48,7 +48,7 @@ export const PresidencialRes = () => {
                 "Sin registro",
                 "Sin registros de resultados para Presidencias"
             ); */
-            Swal.fire("Error", errores, "info");
+            Swal.fire("Información", errores, "info");
         }
     }, [errores]);
 
