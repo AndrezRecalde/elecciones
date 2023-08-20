@@ -108,7 +108,7 @@ export const NovedadActaForm = ({ actaForm }) => {
                         Ingresar Acta
                     </Button>
                 </Flex>
-                {activateActa?.actualizador ? (
+                { activateActa?.actualizador ? (
                     <Card
                         withBorder
                         mt={20}
@@ -130,7 +130,7 @@ export const NovedadActaForm = ({ actaForm }) => {
                             color="black"
                         />
                     </Card>
-                ) : (
+                ) : activateActa?.creador ? (
                     <Card
                         withBorder
                         mt={20}
@@ -152,7 +152,7 @@ export const NovedadActaForm = ({ actaForm }) => {
                             color="black"
                         />
                     </Card>
-                )}
+                ) : null}
             </Card>
             <Grid mt={10} mb={10}>
                 <Grid.Col span={6}>
