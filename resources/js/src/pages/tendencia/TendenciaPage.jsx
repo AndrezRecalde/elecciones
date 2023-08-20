@@ -1,6 +1,5 @@
 import {
     CardBusqTendencia,
-    ChartTendencia,
     TableTendencia,
 } from "../../components";
 import { useTendenciaStore } from "../../hooks";
@@ -14,7 +13,7 @@ export const TendenciaPage = () => {
             {pageLoad ? (
                 <>
                     <TableTendencia />
-                    <ChartTendencia />
+                    {/*<ChartTendencia /> */}
                 </>
             ) : null}
         </>
