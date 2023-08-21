@@ -46,11 +46,11 @@ export const CardBusquedaActa = ({ titlePage }) => {
         e.preventDefault();
         const { errors } = form.validate();
         if (!errors.hasOwnProperty("dignidad_id")) {
-            if (!tipo_acta) {
+            if (tipo_acta === "" || tipo_acta === null) {
                 startExportExcelActasAll(form.values);
                 //console.log(form.values);
                 form.reset();
-            } else if (tipo_acta) {
+            } else if (tipo_acta !== "" || tipo_acta !== null) {
                 startExportExcelActas(form.values);
                 //console.log(form.values);
                 form.reset();
