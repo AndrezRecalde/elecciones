@@ -24,17 +24,17 @@ export const CardBusquedaActa = ({ titlePage }) => {
         },
     });
 
-    const { tipo_acta, canton_id, parroquia_id } = form.values;
+    const { tipo_acta } = form.values;
 
     const handleSearch = (e) => {
         e.preventDefault();
         const { errors } = form.validate();
         if (!errors.hasOwnProperty("dignidad_id")) {
-            if (!tipo_acta) {
+            if (tipo_acta === "" || tipo_acta === null) {
                 startLoadAllActas(form.values);
                 //console.log(form.values);
                 form.reset();
-            } else if (tipo_acta) {
+            } else if (tipo_acta !== "" || tipo_acta !== null) {
                 startLoadActas(form.values);
                 //console.log(form.values);
                 form.reset();
