@@ -58,7 +58,7 @@ class UserController extends Controller
             if ($usuario) {
                 $usuario->update($request->validated());
 
-                if ($request->filled('roles')) {
+                if ($request->filled('role')) {
                     $usuario->roles()->detach();
                     $usuario->assignRole($request->role);
                 }
