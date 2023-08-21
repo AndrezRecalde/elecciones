@@ -70,7 +70,7 @@ export const TableActas = () => {
                         <td>{row.original.votos_validos}</td>
                         <td>{row.original.votos_blancos}</td>
                         <td>{row.original.votos_nulos}</td>
-                        <td>{row.original.cuadrada === 0 ? 'Consistente' : 'Inconsistente'}</td>
+                        <td>{row.original.cuadrada === 0 ? 'Inconsistente' : 'Consistente'}</td>
                         <td>{row.original.nombres}</td>
                     </tr>
                 </tbody>
