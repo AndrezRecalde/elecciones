@@ -39,7 +39,7 @@ export const SeleccionForm = () => {
 
     const searchForm = useForm({
         initialValues: {
-            dignidad_id: "",
+            dignidad_id: 1,
             provincia_id: profile?.provincia_id,
             canton_id: "",
             parroquia_id: "",
@@ -68,7 +68,9 @@ export const SeleccionForm = () => {
     useEffect(() => {
         startLoadProvincia(profile?.provincia_id);
         searchForm.setFieldValue("provincia_id", profile?.provincia_id);
-        if (profile.canton_id !== null) {
+
+        if (profile?.canton_id !== null && profile?.canton_id !== undefined) {
+            console.log(profile?.canton_id)
             searchForm.setFieldValue("canton_id", profile?.canton_id);
             setDisabled(true);
             return;
@@ -148,7 +150,7 @@ export const SeleccionForm = () => {
                         placeholder="Seleccione la Dignidad"
                         withAsterisk
                         searchable
-                        disabled={searchDisabled}
+                        disabled
                         data={dignidades.map((dignidad) => {
                             return {
                                 value: dignidad.id,
