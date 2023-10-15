@@ -119,7 +119,7 @@ class ResultadoController extends Controller
 
     function getResultadosTotales(Request $request): JsonResponse
     {
-        if (auth()->user()->cannot('view', User::class)) {
+        if (auth()->user()->cannot('viewResultados', User::class)) {
             return response()->json([
                 'status' => MsgStatusEnum::Error,
                 'msg' => '403'

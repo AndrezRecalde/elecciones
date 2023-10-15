@@ -26,4 +26,9 @@ class ActaCandidatoPolicy
     {
         return false;
     }
+
+    function viewResultados(User $user): bool
+    {
+        return true;
+    }
 }

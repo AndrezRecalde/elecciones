@@ -16,7 +16,7 @@ class UserPolicy
 
     function before(User $user): bool
     {
-        if ($user->hasRole('Superadministrador') || $user->hasRole('Administrador')) {
+        if ($user->hasRole('Superadministrador') || $user->hasRole('Administrador') || $user->hasRole('Visualizador')) {
             return true;
         }
         return false;
@@ -35,5 +35,10 @@ class UserPolicy
     function delete(User $authUser, User $user): bool
     {
         return $authUser->id === $user->id;
+    }
+
+    function viewResultados(User $user): bool
+    {
+        return true;
     }
 }
