@@ -37,8 +37,7 @@ export const NovedadActaForm = ({ actaForm }) => {
       } else {
         actaForm.setFieldValue('cuadrada', true);
       }
-
-    }, [totales])
+    }, [totales, votos_validos, votos_blancos, votos_nulos]);
 
 
     const handleResetSearch = () => {

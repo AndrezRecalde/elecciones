@@ -14,6 +14,7 @@ import {
     UsuariosPage,
 } from "../../pages";
 import { Container } from "@mantine/core";
+import { Error403 } from "../../pages/errores/Error403";
 
 export const PrivatePages = () => {
     return (
@@ -46,6 +47,9 @@ export const PrivatePages = () => {
                     <Route path="admin/actas" element={<ActaExportPage />} />
                     <Route path="admin/tendencia" element={<TendenciaPage />} />
                     <Route path="/*" element={<Navigate to="/home" />} />
+
+                    <Route path="/error/403" element={<Error403 />} />
+
                 </Routes>
             </Container>
         </>

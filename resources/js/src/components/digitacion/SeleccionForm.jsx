@@ -23,7 +23,7 @@ export const SeleccionForm = () => {
         parroquias,
         zonas,
         juntas,
-        startLoadProvincias,
+        startLoadProvincia,
         startLoadCantones,
         startLoadParroquias,
         startLoadZonas,
@@ -66,18 +66,23 @@ export const SeleccionForm = () => {
     } = searchForm.values;
 
     useEffect(() => {
-        startLoadDignidades();
-        startLoadProvincias();
-        startLoadCantones(provincia_id);
-    }, []);
-
-    useEffect(() => {
+        startLoadProvincia(profile?.provincia_id);
+        searchForm.setFieldValue("provincia_id", profile?.provincia_id);
         if (profile.canton_id !== null) {
-            searchForm.setFieldValue("canton_id", profile.canton_id);
+            searchForm.setFieldValue("canton_id", profile?.canton_id);
             setDisabled(true);
             return;
         }
+    }, [profile]);
+
+    useEffect(() => {
+        startLoadCantones(provincia_id);
+    }, [provincia_id]);
+
+    useEffect(() => {
+        startLoadDignidades();
     }, []);
+
 
     useEffect(() => {
         searchForm.setFieldValue("parroquia_id", "");
@@ -96,7 +101,6 @@ export const SeleccionForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //console.log(searchForm.values);
         startStorageFields(searchForm.values);
         startLoadInfoJunta(junta_id);
         startLoadActa(dignidad_id, junta_id);

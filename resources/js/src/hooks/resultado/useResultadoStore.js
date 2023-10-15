@@ -141,6 +141,10 @@ export const useResultadoStore = () => {
             dispatch(onLoadResultadosCandidatos(candidatos));
         } catch (error) {
             //console.log(error);
+            if (error.response.data.msg === "403") {
+                dispatch(onErrores(error.response.data.msg));
+                return;
+            }
             Swal.fire({
                 icon: "error",
                 title: "Oops...",

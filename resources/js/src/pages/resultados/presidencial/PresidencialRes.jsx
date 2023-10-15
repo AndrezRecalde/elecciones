@@ -12,10 +12,14 @@ import {
     useResultadoStore,
 } from "../../../hooks";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const DIGNIDAD_CURRENT = 1;
 
 export const PresidencialRes = () => {
+    const navigate = useNavigate();
+    const [title, setTitle] = useState("Elecciones | Resultados");
     const { profile } = useAuthStore();
     const {
         pageLoad,
@@ -33,21 +37,23 @@ export const PresidencialRes = () => {
     const valores = { dignidad_id: DIGNIDAD_CURRENT, provincia_id };
 
     useEffect(() => {
+        document.title = title;
         startLoadTotalDeVotos(valores);
         startLoadTotalActasIngresadas(valores);
         startLoadTotalJuntas(valores);
         startLoadResultadosCandidatos(valores);
         return () => {
             startClearResultados();
+            setTitle("");
         };
     }, []);
 
     useEffect(() => {
         if (errores !== undefined) {
-            /* viewNotificationNotResults(
-                "Sin registro",
-                "Sin registros de resultados para Presidencias"
-            ); */
+            if (errores === '403'){
+                navigate("/error/403");
+                return;
+            }
             Swal.fire("Información", errores, "info");
         }
     }, [errores]);

@@ -8,15 +8,14 @@ import {
     TablaWebster,
     TitleSections,
 } from "../../../../components";
-import {
-    useAuthStore,
-    useResultadoStore,
-} from "../../../../hooks";
+import { useAuthStore, useResultadoStore } from "../../../../hooks";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const DIGNIDAD_CURRENT = 2;
 
 export const AsambleistasRes = () => {
+    const navigate = useNavigate();
     const { profile } = useAuthStore();
     const {
         pageLoad,
@@ -41,12 +40,16 @@ export const AsambleistasRes = () => {
         startLoadResultadosCandidatos(valores);
         return () => {
             startClearResultados();
+            setTitle("");
         };
     }, []);
 
     useEffect(() => {
         if (errores !== undefined) {
-            /* viewNotificationNotResults("Sin registro", errores); */
+            if (errores === "403") {
+                navigate("/error/403");
+                return;
+            }
             Swal.fire("Información", errores, "info");
         }
     }, [errores]);

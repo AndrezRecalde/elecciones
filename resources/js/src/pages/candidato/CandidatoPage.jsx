@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Card } from "@mantine/core";
 import {
     ModalActivateCandidato,
@@ -9,13 +9,16 @@ import {
 import { useCandidatoStore } from "../../hooks";
 
 export const CandidatoPage = () => {
+    const [title, setTitle] = useState("Elecciones | Candidatos");
     const { startLoadCandidatos, startClearCandidatos } = useCandidatoStore();
 
     useEffect(() => {
+        document.title = title;
         startLoadCandidatos();
 
         return () => {
             startClearCandidatos();
+            setTitle("");
         };
     }, []);
 

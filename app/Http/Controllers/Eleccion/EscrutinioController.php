@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Eleccion;
 use App\Enums\MsgStatusEnum;
 use App\Http\Controllers\Controller;
 use App\Models\Acta;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +15,12 @@ class EscrutinioController extends Controller
 {
     function getAvanceEscrutinio(): JsonResponse
     {
+        if (auth()->user()->cannot('view', User::class)) {
+            return response()->json([
+                'status' => MsgStatusEnum::Error,
+                'msg' => '403'
+            ], 403);
+        }
         $escrutinio = DB::select('CALL getAvanceEscrutinio()');
 
         return response()->json(['status' => MsgStatusEnum::Success, 'escrutinio' => $escrutinio], 200);

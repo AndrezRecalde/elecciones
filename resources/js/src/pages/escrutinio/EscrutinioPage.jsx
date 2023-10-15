@@ -2,18 +2,33 @@ import { useEffect } from "react";
 import { Badge, Divider, Group } from "@mantine/core";
 import { ChartEscrutinio, TablaEscrutinio, TitleSections } from "../../components";
 import { useEscrutinioStore, useFechaActual } from "../../hooks";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export const EscrutinioPage = () => {
+    const navigate = useNavigate();
+    const [title, setTitle] = useState("Elecciones | Escrutinio");
     const { fechaActual } = useFechaActual();
-    const { startLoadEscrutinio, startClearEscrutinio } = useEscrutinioStore();
+    const { startLoadEscrutinio, startClearEscrutinio, errores } = useEscrutinioStore();
 
     useEffect(() => {
+        document.title = title;
         startLoadEscrutinio();
 
       return () => {
         startClearEscrutinio();
+        setTitle("");
       }
     }, []);
+
+    useEffect(() => {
+        if (errores !== undefined) {
+            if (errores === '403'){
+                navigate("/error/403");
+                return;
+            }
+        }
+    }, [errores]);
 
 
     return (

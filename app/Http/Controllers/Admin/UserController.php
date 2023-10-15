@@ -16,6 +16,13 @@ class UserController extends Controller
 {
     public function getUsuarios(): JsonResponse
     {
+        if (auth()->user()->cannot('view', User::class)) {
+            return response()->json([
+                'status' => MsgStatusEnum::Error,
+                'msg' => '403'
+            ], 403);
+        }
+
         $usuarios = User::from('users as u')
             ->join('provincias as prov', 'prov.id', 'u.provincia_id')
             ->leftJoin('cantones as cant', 'cant.id', 'u.canton_id')
@@ -31,8 +38,8 @@ class UserController extends Controller
 
         return response()->json([
             'status' => MsgStatusEnum::Success,
-            'usuarios' => $usuarios->filter(function($value){
-                if($value->role_id > 1){
+            'usuarios' => $usuarios->filter(function ($value) {
+                if ($value->role_id > 1) {
                     return $value;
                 }
             })->values()
@@ -89,10 +96,10 @@ class UserController extends Controller
         $usuario = User::find($id);
 
         try {
-            if($usuario){
+            if ($usuario) {
                 $usuario->update($request->validated());
                 return response()->json(['status' => MsgStatusEnum::Success, 'msg' => MsgStatusEnum::Actualizado], 201);
-            }else {
+            } else {
                 return response()->json(['status' => MsgStatusEnum::Error, 'msg' => MsgStatusEnum::NotFound], 404);
             }
         } catch (\Throwable $th) {

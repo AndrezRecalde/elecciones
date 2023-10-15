@@ -48,7 +48,7 @@ const mockdata = [
         title: "Resultados Asambleístas",
         description:
             "Resultados mediante el método Webster de los candidatos a Asamblea Nacional.",
-        disabled: false,
+        disabled: true,
         to: "/resultados/webster/asamblea",
         target: "_blank",
     },

@@ -4,7 +4,9 @@ import { useAuthStore } from "../../hooks";
 export const PrivateRoutes = ({ children }) => {
     const { isLogin } = useAuthStore();
 
-    return (isLogin)
+    const token = localStorage.getItem("eth_token");
+
+    return (token)
         ? children
         : <Navigate to="/auth/login" />;
 };

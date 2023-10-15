@@ -1,8 +1,10 @@
 import { useForm } from "@mantine/form";
 import { PasswordForm } from "../../../components";
 import { Grid } from "@mantine/core";
+import { useEffect, useState } from "react";
 
 export const ChangePwd = () => {
+    const [title, setTitle] = useState("Elecciones | Password");
     const form = useForm({
         initialValues: {
             password: "",
@@ -13,6 +15,14 @@ export const ChangePwd = () => {
                 value !== values.password ? "Contraseñas no coinciden" : null,
         },
     });
+
+    useEffect(() => {
+        document.title = title;
+
+        return () => {
+            setTitle("");
+        };
+    }, []);
 
     return (
         <Grid justify="center">

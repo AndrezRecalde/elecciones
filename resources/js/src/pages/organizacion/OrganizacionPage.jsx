@@ -5,17 +5,20 @@ import {
     TitleSections,
 } from "../../components";
 import { useOrganizacionStore } from "../../hooks";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const OrganizacionPage = () => {
+    const [title, setTitle] = useState("Elecciones | Organizaciones");
     const { startLoadOrganizaciones, startClearOrganizaciones } =
         useOrganizacionStore();
 
     useEffect(() => {
+        document.title = title;
         startLoadOrganizaciones();
 
         return () => {
             startClearOrganizaciones();
+            setTitle("");
         };
     }, []);
 

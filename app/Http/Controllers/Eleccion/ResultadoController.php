@@ -6,7 +6,7 @@ use App\Enums\MsgStatusEnum;
 use App\Http\Controllers\Controller;
 use App\Models\Acta;
 use App\Models\ActaCandidato;
-use App\Models\Junta;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -119,6 +119,13 @@ class ResultadoController extends Controller
 
     function getResultadosTotales(Request $request): JsonResponse
     {
+        if (auth()->user()->cannot('view', User::class)) {
+            return response()->json([
+                'status' => MsgStatusEnum::Error,
+                'msg' => '403'
+            ], 403);
+        }
+
         $candidatos = ActaCandidato::from('acta_candidato as ac')
             ->selectRaw('d.nombre_dignidad, c.nombre_candidato,
                     org.nombre_organizacion, org.lista, org.sigla, org.color,
@@ -154,6 +161,13 @@ class ResultadoController extends Controller
 
     function getTotalesDeVotos(Request $request): JsonResponse
     {
+        /* if (auth()->user()->cannot('view', User::class)) {
+            return response()->json([
+                'status' => MsgStatusEnum::Error,
+                'msg' => '403'
+            ], 403);
+        } */
+
         $totalDeVotos = ActaCandidato::from('acta_candidato as ac')
             ->selectRaw('SUM(a.votos_validos) as total_votos_validos,
                          SUM(a.votos_blancos) as total_votos_blancos,
@@ -205,14 +219,17 @@ class ResultadoController extends Controller
         return response()->json(['status' => MsgStatusEnum::Success, 'tendencias' => $tendencias], 200);
     }
 
-    function getTendenciaZona(Request $request) : JsonResponse
+    function getTendenciaZona(Request $request): JsonResponse
     {
-        $tendencias = Junta::from('juntas as j')
-        ->selectRaw('j.id, j.junta_nombre, j.zona_id')
-        ->with(['actas'])
-        ->join('zonas as z', 'z.id', 'j.zona_id')
-        ->zona($request->zona_id)
-        ->get();
+        $tendencias = Acta::from('actas as a')
+            ->selectRaw('a.id, a.dignidad_id, a.zona_id, d.nombre_dignidad, j.junta_nombre')
+            ->with('votos')
+            ->join('dignidades as d', 'd.id', 'a.dignidad_id')
+            ->join('juntas as j', 'j.id', 'a.junta_id')
+            ->join('zonas as z', 'z.id', 'a.zona_id')
+            ->dignidad($request->dignidad_id)
+            ->zona($request->zona_id)
+            ->get();
 
         return response()->json(['status' => MsgStatusEnum::Success, 'tendencias' => $tendencias], 200);
     }

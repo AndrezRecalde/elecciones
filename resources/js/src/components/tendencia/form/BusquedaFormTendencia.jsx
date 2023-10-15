@@ -22,7 +22,7 @@ export const BusquedaFormTendencia = ({ form }) => {
         startLoadParroquias,
         startLoadZonas,
     } = useStateStore();
-    const { startLoadTendencias } = useTendenciaStore();
+    const { startLoadTendencias, startLoadTendenciasChart } = useTendenciaStore();
 
     useEffect(() => {
         startLoadDignidades();
@@ -47,6 +47,7 @@ export const BusquedaFormTendencia = ({ form }) => {
         e.preventDefault();
         //console.log(form.values);
         startLoadTendencias(form.values);
+        startLoadTendenciasChart(form.values);
     };
 
     return (

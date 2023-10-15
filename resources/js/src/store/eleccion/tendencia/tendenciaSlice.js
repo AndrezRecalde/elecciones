@@ -6,6 +6,7 @@ export const tendenciaSlice = createSlice({
         pageLoad: false,
         isLoading: false,
         tendencias: null,
+        tendenciasChart: null,
     },
     reducers: {
         onLoading: (state) => {
@@ -16,12 +17,20 @@ export const tendenciaSlice = createSlice({
             state.isLoading = false;
             state.pageLoad = true;
         },
+        onLoadTendenciasChart: (state, { payload }) => {
+            state.tendenciasChart = payload;
+        },
         onClearTendencias: (state) => {
             state.tendencias = null;
+            state.tendenciasChart = null;
             state.pageLoad = false;
         },
     },
 });
 
-export const { onLoading, onLoadTendencias, onClearTendencias } =
-    tendenciaSlice.actions;
+export const {
+    onLoading,
+    onLoadTendencias,
+    onLoadTendenciasChart,
+    onClearTendencias,
+} = tendenciaSlice.actions;

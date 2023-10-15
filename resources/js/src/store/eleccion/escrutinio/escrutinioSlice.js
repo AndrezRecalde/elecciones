@@ -14,6 +14,11 @@ export const escrutinioSlice = createSlice({
         onDashboardEscrutinio: (state, { payload }) => {
             state.dashboardEscrutinio = payload;
         },
+        onErrores: (state, { payload }) => {
+            state.errores = payload;
+            state.resultadosEscrutinio = [];
+            state.dashboardEscrutinio = [];
+        },
         onClearEscrutinio: (state) => {
             state.resultadosEscrutinio = [];
             state.dashboardEscrutinio = [];
@@ -21,5 +26,5 @@ export const escrutinioSlice = createSlice({
     },
 });
 
-export const { onLoadEscrutinio, onDashboardEscrutinio, onClearEscrutinio } =
+export const { onLoadEscrutinio, onDashboardEscrutinio, onErrores, onClearEscrutinio } =
     escrutinioSlice.actions;

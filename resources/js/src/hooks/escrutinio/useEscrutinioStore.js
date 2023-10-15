@@ -1,10 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { onClearEscrutinio, onDashboardEscrutinio, onLoadEscrutinio } from "../../store/eleccion/escrutinio/escrutinioSlice";
+import {
+    onClearEscrutinio,
+    onDashboardEscrutinio,
+    onErrores,
+    onLoadEscrutinio,
+} from "../../store/eleccion/escrutinio/escrutinioSlice";
 import eleccionApi from "../../api/eleccionApi";
 import Swal from "sweetalert2";
 
 export const useEscrutinioStore = () => {
-    const { resultadosEscrutinio, dashboardEscrutinio } = useSelector((state) => state.escrutinio);
+    const { resultadosEscrutinio, dashboardEscrutinio, errores } = useSelector(
+        (state) => state.escrutinio
+    );
     const dispatch = useDispatch();
 
     const startLoadEscrutinio = async () => {
@@ -16,6 +23,10 @@ export const useEscrutinioStore = () => {
             dispatch(onLoadEscrutinio(escrutinio));
         } catch (error) {
             //console.log(error);
+            if (error.response.data.msg === "403") {
+                dispatch(onErrores(error.response.data.msg));
+                return;
+            }
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
@@ -29,9 +40,11 @@ export const useEscrutinioStore = () => {
         }
     };
 
-    const startDashboardEscrutinio = async() => {
+    const startDashboardEscrutinio = async () => {
         try {
-            const { data } = await eleccionApi.get("/dashboard/avance/escrutinio");
+            const { data } = await eleccionApi.get(
+                "/dashboard/avance/escrutinio"
+            );
             const { total } = data;
             dispatch(onDashboardEscrutinio(total));
         } catch (error) {
@@ -47,18 +60,19 @@ export const useEscrutinioStore = () => {
                 confirmButtonColor: "#c81d11",
             });
         }
-    }
+    };
 
     const startClearEscrutinio = () => {
         dispatch(onClearEscrutinio());
-    }
+    };
 
     return {
         resultadosEscrutinio,
         dashboardEscrutinio,
+        errores,
 
         startLoadEscrutinio,
         startDashboardEscrutinio,
-        startClearEscrutinio
+        startClearEscrutinio,
     };
 };

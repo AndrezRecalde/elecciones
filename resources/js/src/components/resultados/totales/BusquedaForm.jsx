@@ -33,12 +33,14 @@ export const BusquedaForm = ({ form }) => {
 
     useEffect(() => {
         startLoadDignidades();
-        startLoadCantones(profile?.provincia_id);
-
         return () => {
             startClearDignidades();
         };
     }, []);
+
+    useEffect(() => {
+        startLoadCantones(profile?.provincia_id);
+    }, [profile]);
 
     useEffect(() => {
         startLoadParroquias(canton_id);

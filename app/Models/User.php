@@ -55,7 +55,7 @@ class User extends Authenticatable
 
     public function scopeAllowed($query)
     {
-        if(auth()->user()->hasRole('Superadministrador'))
+        if(auth()->user()->hasRole('Superadministrador') || auth()->user()->hasRole('Administrador'))
         {
             return $query;
         }else {

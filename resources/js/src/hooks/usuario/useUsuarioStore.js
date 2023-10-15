@@ -6,14 +6,15 @@ import {
     onUpdateUsuario,
     onLoadUsuarios,
     onSetActivateUsuario,
+    onErrores,
 } from "../../store/admin/usuario/usuarioSlice";
 import Swal from "sweetalert2";
 import eleccionApi from "../../api/eleccionApi";
 
-
 export const useUsuarioStore = () => {
-    const { isLoading, usuarios, activateUsuario, errores } =
-        useSelector((state) => state.usuario);
+    const { isLoading, usuarios, activateUsuario, errores } = useSelector(
+        (state) => state.usuario
+    );
 
     const dispatch = useDispatch();
 
@@ -21,10 +22,14 @@ export const useUsuarioStore = () => {
         dispatch(onLoading());
         try {
             const { data } = await eleccionApi.get("/admin/listar/usuarios");
+            console.log(data);
             const { usuarios } = data;
             dispatch(onLoadUsuarios(usuarios));
         } catch (error) {
-            //console.log(error);
+            if (error.response.data.msg === "403") {
+                dispatch(onErrores(error.response.data.msg));
+                return;
+            }
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
@@ -120,7 +125,9 @@ export const useUsuarioStore = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await eleccionApi.delete(`/admin/delete/usuario/${usuario.id}`);
+                    await eleccionApi.delete(
+                        `/admin/delete/usuario/${usuario.id}`
+                    );
                     Swal.fire("¡Eliminado!", "", "success");
                     startLoadUsuarios();
                 } catch (error) {
